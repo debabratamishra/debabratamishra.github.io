@@ -12,4 +12,4 @@ redirect_from:
 Education
 ======
 * Bachelor of Technology, Biju Patnaik University of Technology, 2012-2016
-* Masters in Aritficial Intelligence, Monash University, 2021-2023
+* Masters in Artificial Intelligence, Monash University, 2021-2023
