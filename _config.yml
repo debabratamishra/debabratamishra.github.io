@@ -72,8 +72,7 @@ analytics:
 author:
   name             : "Debabrata Mishra"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Melbourne, AU"
+  bio              : "AI Researcher"
   employer         : #"Monash University, AU"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
   email            : "debabratamishra[dot]641[at]gmail[dot]com"
@@ -86,8 +85,9 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : "https://stackoverflow.com/users/11456086/debabrata-mishra"
   twitter          : #"replacethistwitterhandle"
+  location         : "Melbourne, AU"
 
 
 # Reading Files
