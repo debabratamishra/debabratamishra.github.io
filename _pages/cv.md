@@ -9,6 +9,14 @@ redirect_from:
 
 {% include base_path %}
 
+Work Experience
+======
+* National Acoustic Laboratories, Australia
+* Monash University, Australia
+* Deakin University, Australia
+* Capillary Technologies, India
+* Tata Consultancy Services, India
+
 Education
 ======
 * Masters in Artificial Intelligence, Monash University, 2021-2023
