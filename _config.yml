@@ -73,9 +73,9 @@ author:
   name             : "Debabrata Mishra"
   avatar           : "profile.png"
   bio              : "AI Researcher"
-  employer         : #"Monash University, AU"
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : "debabratamishra[dot]641[at]gmail[dot]com"
+  employer         : "National Acoustic Laboratories"
+  googlescholar    : "https://scholar.google.com.au/citations?user=oqq4vIgAAAAJ"
+  email            : "debabrata[dot]mishra641[at]gmail[dot]com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -84,10 +84,10 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "in/debabrata-mishra1"
   stackoverflow    : "11456086/debabrata-mishra"
   twitter          : #"replacethistwitterhandle"
-  location         : "Melbourne, AU"
+  location         : "Sydney, AU"
 
 
 # Reading Files
@@ -182,7 +182,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Australia/Melbourne # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Australia/Sydney # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
