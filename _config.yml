@@ -72,8 +72,8 @@ analytics:
 author:
   name             : "Debabrata Mishra"
   avatar           : "profile.png"
-  bio              : "AI Researcher"
-  employer         : "National Acoustic Laboratories"
+  bio              : "Machine Learning Research Engineer"
+  employer         : #"National Acoustic Laboratories"
   googlescholar    : "https://scholar.google.com.au/citations?user=oqq4vIgAAAAJ"
   email            : "debabrata[dot]mishra641[at]gmail[dot]com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
@@ -84,7 +84,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "in/debabrata-mishra1"
+  linkedin         : "debabrata-mishra1"
   stackoverflow    : "11456086/debabrata-mishra"
   twitter          : #"replacethistwitterhandle"
   location         : "Sydney, AU"
