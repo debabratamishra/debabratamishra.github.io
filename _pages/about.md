@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-Under Construction
+Hi, I'm Debabrata, a Machine Learning enthusiast and researcher at the National Axoustic Laboratories(NAL), where I'm working in the frontier of advancing hearing science and technology. 
