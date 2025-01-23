@@ -22,3 +22,12 @@ Education
 * Masters in Artificial Intelligence, Monash University, 2021-2023
 * Bachelor of Technology, Biju Patnaik University of Technology, 2012-2016
 
+Skills
+======
+* Machine Learning
+* Deep Learning
+* Off-Policy Reinforcement Learning
+* Apache Spark
+* Dask
+* Microsoft Azure
+* Amazon Web Services
