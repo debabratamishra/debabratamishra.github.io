@@ -26,7 +26,7 @@ Skills
 ======
 * Machine Learning
 * Deep Learning
-* Off-Policy Reinforcement Learning
+* Reinforcement Learning
 * Apache Spark
 * Dask
 * Microsoft Azure
