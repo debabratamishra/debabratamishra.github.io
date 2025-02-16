@@ -22,6 +22,11 @@ Education
 * Masters in Artificial Intelligence, Monash University (2021-2023)
 * Bachelor of Technology, Biju Patnaik University of Technology (2012-2016)
 
+Conferences
+======
+* Podium Presentation at International Society for Magnetic Resonance in Medicine(ISMRM) 2024 at Singapore
+* Poster presentation at Organization for Human Brain Mapping(OHBM) 2024 at Seoul, South Korea
+
 Skills
 ======
 * Machine Learning
