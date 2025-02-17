@@ -27,6 +27,12 @@ Conferences
 * Podium Presentation at International Society for Magnetic Resonance in Medicine(ISMRM) 2024 at Singapore
 * Poster presentation at Organization for Human Brain Mapping(OHBM) 2024 at Seoul, South Korea
 
+Licenses & Certificates
+======
+* [Natural Language Processing Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/certificate/FNZ9A9AZ3YLT)
+* [Mathematics for Machine Learning Specialization - Imperial College London](https://www.coursera.org/account/accomplishments/specialization/EAPXMVQ2QL68)
+* [Deep Learning Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/G5H37YK7NCQZ)
+
 Skills
 ======
 * Machine Learning
