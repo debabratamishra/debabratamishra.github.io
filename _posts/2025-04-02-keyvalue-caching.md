@@ -1,10 +1,13 @@
 ---
 title: 'Key-Value caching'
+layout: single
+author_profile: true
 date: 2025-05-02
 permalink: /posts/2025/05/keyvalue-caching/
 tags:
   - Large Language Models
   - Artificial Intelligence
+comments: true
 ---
 
 ### What is Key-Value caching?
@@ -24,8 +27,10 @@ From a high-level perspective, most transformers consist of a few basic building
 
 The most innovative of these building blocks is the self-attention mechanism. This mechanism allows the model to weigh the importance of different words in the input sequence when producing the next word. This is where the concepts of Keys and Values originate, and it's the core of what KV Caching optimizes.
 
-![alt text](../images/Transformers.png)
-Figure 1 : Model Architecture of Transformer<sup>[1](https://arxiv.org/abs/1706.03762v7)</sup>
+<div style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/Transformers.png" alt="Transformer Architecture" style="max-width: 40%; height: auto;">
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 1: Model Architecture of Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
+</div>
 
 ### A Closer Look at Self-Attention
 
@@ -42,8 +47,10 @@ These $Q$, $K$, and $V$ vectors are created by multiplying the token's embedding
 
 The model then uses the Query vector of the current token to score itself against the Key vectors of all tokens in the sequence (including itself). These scores determine how much "attention" to pay to each token's Value, and this is what makes the model context-aware.
 
-![alt text](../images/multihead_attention.png)
-Figure 2: The Multi-Head Attention block in a Transformer, showing how inputs are projected into Query, Key, and Value vectors<sup>[1](https://arxiv.org/abs/1706.03762v7)</sup>
+<div style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/multihead_attention.png" alt="Multi-Head Attention" style="max-width: 30%; height: auto;">
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 2: The Multi-Head Attention block in a Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
+</div>
 
 ### How Does Key-Value Caching Work?
 
@@ -51,7 +58,7 @@ LLMs generate text in an autoregressive manner, meaning they generate one word a
 
 This is where KV caching comes to the rescue.
 
-Instead of discarding the Key and Value vectors after they are calculated, the model stores them in a cache. When generating the next word, the model only needs to calculate the $Q, K$ and $V$ vectors for the newest word and can then retrieve the $K$ and $V# vectors of all the previous words directly from the cache.
+Instead of discarding the Key and Value vectors after they are calculated, the model stores them in a cache. When generating the next word, the model only needs to calculate the $Q, K$ and $V$ vectors for the newest word and can then retrieve the $K$ and $V$ vectors of all the previous words directly from the cache.
 
 Let's illustrate with an example:
 
