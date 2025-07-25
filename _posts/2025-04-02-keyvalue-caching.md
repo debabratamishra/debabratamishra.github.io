@@ -612,20 +612,16 @@ The mathematical analysis demonstrates clear scaling behaviours and trade-offs t
 
 Looking ahead, several promising research directions will likely transform how KV caching is implemented and utilized
 
-1. Advanced Cache Management: 
+- Advanced Cache Management: 
 
-Current KV caches typically use simple FIFO eviction when memory limits are reached.
-Future systems will implement adaptive policies that analyze attention patterns in real-time to identify which cached entries are most likely to be reused.
-e.g. a cache manager might preserve key-value pairs from tokens that consistently receive high attention weights across multiple layers, while aggressively evicting those from tokens with declining relevance.
+Current KV caches typically use simple FIFO eviction when memory limits are reached. Future systems will implement adaptive policies that analyze attention patterns in real-time to identify which cached entries are most likely to be reused. e.g. a cache manager might preserve key-value pairs from tokens that consistently receive high attention weights across multiple layers, while aggressively evicting those from tokens with declining relevance.
 This could reduce cache misses at a greater efficiency compared to naive eviction strategies.
 
-2. Dynamic Sparsity:
+- Dynamic Sparsity: 
 
-Advanced systems will implement real-time pruning of KV caches based on attention score analysis.
-By monitoring which tokens consistently receive low attention weights, the system can dynamically remove their cached representations while maintaining output quality.
-This creates a self-optimizing cache that adapts to the specific attention patterns of each model and use case.
+Advanced systems will implement real-time pruning of KV caches based on attention score analysis. By monitoring which tokens consistently receive low attention weights, the system can dynamically remove their cached representations while maintaining output quality. This creates a self-optimizing cache that adapts to the specific attention patterns of each model and use case.
 
-3. Distributed Caching:
+- Distributed Caching:
 
 For large-scale deployments serving multiple users, distributed KV caching systems will emerge that can share cached computations across different inference servers.
 When User A asks about a topic, the resulting KV cache could be partially reused when User B asks a related question on a different server.
