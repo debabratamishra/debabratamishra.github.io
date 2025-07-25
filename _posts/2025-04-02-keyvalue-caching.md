@@ -20,7 +20,7 @@ To understand this better, we will briefly touch upon the Transformer architectu
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/keyvaluecache_main.png" alt="Key-Value Cache" style="max-width: 80%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 1: Comparison of text generation with and without KV caching. In the upper panel (no cache), key and value vectors are recalculated at every step, leading to redundant computations. In contrast, the lower panel (with cache) reuses previously stored key and value vectors from the cache, eliminating recomputation and enabling faster inference.<sup><a href="https://sebastianraschka.com/blog/2025/coding-the-kv-cache-in-llms.html">[2]</a></sup></p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 1: Comparison of text generation with and without KV caching. In the upper panel (no cache), key and value vectors are recalculated at every step, leading to redundant computations. In contrast, the lower panel (with cache) reuses previously stored key and value vectors from the cache, eliminating recomputation and enabling faster inference.<sup><a href="https://sebastianraschka.com/blog/2025/coding-the-kv-cache-in-llms.html">[Source : Understanding and Coding the KV Cache in LLMs from Scratch by Sebastian Raschka]</a></sup></p>
 </div>
 
 ### Transformer architecture overview
@@ -35,7 +35,7 @@ The most innovative of these building blocks is the self-attention mechanism. Th
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/Transformers.png" alt="Transformer Architecture" style="max-width: 40%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 1: Model Architecture of Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 2: Model Architecture of Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
 </div>
 
 ### A Closer Look at Self-Attention
@@ -55,7 +55,7 @@ The model then uses the Query vector of the current token to score itself agains
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/multihead_attention.png" alt="Multi-Head Attention" style="max-width: 30%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 2: The Multi-Head Attention block in a Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: The Multi-Head Attention block in a Transformer<sup><a href="https://arxiv.org/abs/1706.03762v7">[1]</a></sup></p>
 </div>
 
 
@@ -429,7 +429,7 @@ I have evaluated how computational efficiency and memory usage scale with increa
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/kvcaching_timevspromptlen.png" alt="Comparison between computation time vs Prompt Length using the toy example" style="max-width: 70%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: Comparison between computation time vs Prompt Length </p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 4: Comparison between computation time vs Prompt Length </p>
 </div>
 
 
@@ -461,12 +461,12 @@ To observe the scaling behavior with model depth, I have fixed the prompt length
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/kvcachescalingvsnumlayers.png" alt="Comparison between Nmumber of Layers vs Cache Memory size using the toy example" style="max-width: 70%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: Comparison between computation time vs Prompt Length</p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 5: Comparison between computation time vs Prompt Length</p>
 </div>
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/kvcache_timevsnumlayers.png" alt="Comparison between computation time vs Number of Layers using the toy example" style="max-width: 70%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: Comparison between computation time vs Prompt Length</p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 6: Comparison between computation time vs Prompt Length</p>
 </div>
 
 While the toy network used in this example is intentionally minimalistic, the trends observed particularly regarding the effectiveness of KV caching will scale in similar patterns in larger architectures like those used in modern LLMs. Of course, the absolute memory and compute values will vary significantly depending on model dimensionality, depth, and implementation specifics.
