@@ -411,7 +411,7 @@ Efficiency gain: 98.71%
 
 Feel free to play around by varying the paramaters to gauage the impact with KV Caching.
 
-Using the above example code, which embeds a very simplistic network, we can perform various analyses to examine different aspects of memory scaling and computational cost as the complexity of the network and the input sequence increases.
+Based on the earlier example implementation, which embeds a deliberately minimal network, we can analyze how memory and compute costs scale as we increase the input sequence length and model complexity. These experiments help us understand the benefits of key-value (KV) caching in practical transformer scenarios.
 
 **Sequence Length scaling:**
 
@@ -432,6 +432,7 @@ I have evaluated how computational efficiency and memory usage scale with increa
   <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: Comparison between computation time vs Prompt Length </p>
 </div>
 
+
 **Computational Cost Comparison:**
 
 This table reiterates the efficiency gain from KV caching across different sequence lengths.
@@ -445,6 +446,7 @@ This table reiterates the efficiency gain from KV caching across different seque
 |       256 |     0.60 |   0.062 |     12.545 |  200.85x|
 |       384 |     0.85 |   0.083 |     18.669 |  224.15x|
 |       512 |     1.10 |   0.090 |     24.643 |  274.18x|
+
 
 **Number of Layers scaling:**
 
@@ -467,8 +469,8 @@ To observe the scaling behavior with model depth, I have fixed the prompt length
   <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 3: Comparison between computation time vs Prompt Length</p>
 </div>
 
-While the toy network used in this example is intentionally minimalistic, the trends observed particularly regarding the effectiveness of KV caching will scale in similar patterns in larger architectures
-like those used in modern LLMs. However, the absolute values will differ, especially in terms of memory usage and computational cost, given the higher dimensionality and depth of real-world networks and ofcourse their implementation.
+While the toy network used in this example is intentionally minimalistic, the trends observed particularly regarding the effectiveness of KV caching will scale in similar patterns in larger architectures like those used in modern LLMs. Of course, the absolute memory and compute values will vary significantly depending on model dimensionality, depth, and implementation specifics.
+
 The complete example code for benchmarking the performance is available at [Demo Code](https://github.com/debabratamishra/llm/blob/main/Fundamentals/kvcache_demo.ipynb). 
 
 ### Key Insights
@@ -485,7 +487,7 @@ However, the benefits diminish for very short inputs, where the overhead of cach
 Lastly, there's an inherent trade-off between memory and speed. While KV caching enables faster inference by avoiding redundant computations, it does so at the cost of increased memory usage, which can limit the effective batch size particularly on GPUs with constrained memory.
 This trade-off becomes especially relevant for real-time applications such as chatbots and code completion systems, where both latency and throughput are critical.
 
-### How do we optimize Key-value caching further?
+### How do we optimize Key-value caching?
 
 While key-value (KV) caching can significantly speed up inference in transformer models, it also introduces memory bottlenecks, especially at scale.
 To address these, several advanced optimization techniques have been proposed and are increasingly used in real-world systems.
