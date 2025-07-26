@@ -29,7 +29,7 @@ Conferences
 
 Licenses & Certificates
 ======
-* [Reinforcment Learning Specialization - University of Alberta](https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R)
+* [Reinforcement Learning Specialization - University of Alberta](https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R)
 * [Natural Language Processing Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/certificate/FNZ9A9AZ3YLT)
 * [Mathematics for Machine Learning Specialization - Imperial College London](https://www.coursera.org/account/accomplishments/specialization/EAPXMVQ2QL68)
 * [Deep Learning Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/G5H37YK7NCQZ)
