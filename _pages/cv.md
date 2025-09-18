@@ -27,6 +27,13 @@ Conferences
 * Podium Presentation at International Society for Magnetic Resonance in Medicine(ISMRM) 2024 at Singapore
 * Poster presentation at Organization for Human Brain Mapping(OHBM) 2024 at Seoul, South Korea
 
+Active Projects
+======
+
+* [LiteMind UI](https://github.com/debabratamishra/litemind-ui)
+
+* [LLM Evals](https://github.com/debabratamishra/llm-evals)
+
 Licenses & Certificates
 ======
 * [Reinforcement Learning Specialization - University of Alberta](https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R)
