@@ -31,8 +31,11 @@ Active Projects
 ======
 
 * [LiteMind UI](https://github.com/debabratamishra/litemind-ui)
+<br>Enterprise grade full stack LLM UI with agentic RAG, Swagger/OpenAPI documentation, and n8n workflow integrations for cross application automation.
+<br>Container images here - [Deb's DockerHub](https://hub.docker.com/u/debabratamishra1)
 
 * [LLM Evals](https://github.com/debabratamishra/llm-evals)
+<br>Reproducible evaluation framework for large language models: custom benchmarks, automated scoring, and experiment tracking to support rigorous model comparisons.
 
 Licenses & Certificates
 ======
