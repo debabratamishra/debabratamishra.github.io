@@ -11,7 +11,8 @@ redirect_from:
 
 Work Experience
 ======
-* National Acoustic Laboratories, Australia (2024 - Present)
+* Commonwealth Bank of Australia, Australia (2025 - Present)
+* National Acoustic Laboratories, Australia (2024 - 2025)
 * Monash University, Australia (2021- 2024)
 * Deakin University, Australia (2022 - 2023)
 * Capillary Technologies, India (2018 - 2021)
@@ -31,7 +32,7 @@ Active Projects
 ======
 
 * [LiteMind UI](https://github.com/debabratamishra/litemind-ui)
-<br>Enterprise grade full stack LLM UI with agentic RAG, Swagger/OpenAPI documentation, and n8n workflow integrations for cross application automation.
+<br>Enterprise grade full stack LLM UI with agentic RAG, Swagger/OpenAPI documentation, and realtime voice mode for seamless human AI interaction.
 <br>Container images here - [Deb's DockerHub](https://hub.docker.com/u/debabratamishra1)
 
 * [LLM Evals](https://github.com/debabratamishra/llm-evals)
