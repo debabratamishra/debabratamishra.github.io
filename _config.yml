@@ -74,8 +74,8 @@ analytics:
 author:
   name             : "Debabrata Mishra"
   avatar           : "profile.png"
-  bio              : "ML Research Engineer"
-  employer         : #"National Acoustic Laboratories"
+  bio              : "Senior Data Scientist"
+  # employer         : "Commonwealth Bank of Australia"
   googlescholar    : "https://scholar.google.com.au/citations?user=oqq4vIgAAAAJ"
   email            : "debabrata[dot]mishra641[at]gmail[dot]com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
