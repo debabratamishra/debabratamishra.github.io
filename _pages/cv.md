@@ -38,6 +38,9 @@ Active Projects
 * [LLM Evals](https://github.com/debabratamishra/llm-evals)
 <br>Reproducible evaluation framework for large language models: custom benchmarks, automated scoring, and experiment tracking to support rigorous model comparisons.
 
+* [LiteMind CLI](https://github.com/debabratamishra/litemind-cli)
+<br>Python terminal UI for the LiteMindUI backend, bringing chat, retrieval-augmented generation (RAG), and provider switching to the command line.
+
 Licenses & Certificates
 ======
 * [Reinforcement Learning Specialization - University of Alberta](https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R)

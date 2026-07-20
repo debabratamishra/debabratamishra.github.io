@@ -1,0 +1,258 @@
+/* ==========================================================================
+   THEME TOGGLE (dark / light) + dark mode overrides
+   The light theme is the theme default and is untouched. This file only
+   ADDS a dark palette (prefixed with [data-theme="dark"]) plus the toggle
+   control. No theme SCSS variables are modified, so the build is unaffected.
+   ========================================================================== */
+
+/* ---- 1. Masthead layout: place the toggle top-right ---- */
+.masthead__inner-wrap {
+  display: flex;
+  align-items: center;
+
+  /* the theme's clearfix ::after becomes an empty flex item; neutralize it */
+  &::after {
+    content: normal;
+  }
+}
+
+.masthead__menu {
+  flex: 1 1 auto;
+}
+
+/* ---- 2. Toggle control ---- */
+.theme-toggle {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: 1rem;
+  padding: 0;
+  color: $masthead-link-color;
+  background: transparent;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    color: $masthead-link-color-hover;
+    border-color: $masthead-link-color;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $link-color;
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+}
+
+.theme-toggle__icon--sun  { display: none; }
+.theme-toggle__icon--moon { display: block; }
+
+/* ---- 3. Dark palette + overrides ---- */
+[data-theme="dark"] {
+  --bg: #121417;
+  --surface: #1b1e23;
+  --text: #d7dde3;
+  --muted: #9aa4ad;
+  --border: #2c3138;
+  --link: #6cc4dd;
+  --link-hover: #8fd6ea;
+  --accent: #8a929a;
+  --code-bg: #1a1d22;
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  h1, h2, h3, h4, h5, h6 { color: #e7ecf1; }
+
+  a { color: var(--link); }
+  a:hover, a:active { color: var(--link-hover); }
+  a:visited { color: #7fb7c9; }
+
+  /* masthead / navigation */
+  .masthead { border-bottom-color: var(--border); }
+  .greedy-nav { background-color: var(--bg); }
+  .greedy-nav a { color: var(--muted); }
+  .greedy-nav a:hover { color: #e7ecf1; }
+  .greedy-nav .visible-links a:before { background: var(--accent); }
+  .greedy-nav button { background-color: var(--surface); }
+  .navicon, .navicon:before, .navicon:after { background: #e7ecf1; }
+  .greedy-nav .hidden-links {
+    background-color: var(--surface);
+    border-color: var(--border);
+  }
+  .greedy-nav .hidden-links a:hover {
+    color: #e7ecf1;
+    background-color: #23272e;
+  }
+  .greedy-nav .hidden-links:before { border-color: var(--border) transparent; }
+  .greedy-nav .hidden-links:after { border-color: var(--surface) transparent; }
+
+  /* footer */
+  .page__footer {
+    color: var(--muted);
+    background-color: var(--surface);
+    border-top-color: var(--border);
+  }
+  .page__footer .fas,
+  .page__footer .fab,
+  .page__footer .far,
+  .page__footer .fal { color: var(--muted); }
+
+  /* author sidebar */
+  .sidebar,
+  .author__name,
+  .author__bio { color: var(--text); }
+  .author__avatar img { border-color: var(--border); }
+  .author__urls {
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .author__urls a { color: var(--text); }
+  .author__urls:before { border-color: var(--border) transparent; }
+  .author__urls:after { border-color: var(--surface) transparent; }
+
+  /* content */
+  .page__content,
+  .page__hero,
+  .archive,
+  .list__item,
+  .archive__item { color: var(--text); }
+  blockquote { border-left-color: var(--accent); color: var(--muted); }
+  hr { border-top-color: var(--border); }
+  figure figcaption { color: var(--muted); }
+  u, ins { border-bottom-color: var(--text); }
+
+  /* code (Solarized Dark background; the existing Solarized token colors
+     are theme-agnostic and stay readable) */
+  p > code, a > code, li > code, figcaption > code, td > code {
+    background-color: var(--code-bg);
+    border-color: var(--border);
+  }
+  div.highlighter-rouge,
+  figure.highlight {
+    background-color: #002b36;
+    border-color: #073642;
+  }
+  div.highlighter-rouge:before,
+  figure.highlight:before {
+    background-color: #073642;
+    color: #839496;
+  }
+  .highlight { color: #839496; }
+
+  /* tables */
+  table { background: var(--bg); }
+  th, td { border-color: var(--border); }
+  tbody tr:nth-child(2n + 1) { background-color: var(--surface); }
+
+  /* pagination */
+  .pagination li a {
+    color: var(--muted);
+    border-color: var(--border);
+  }
+  .pagination li a:hover { color: var(--link-hover); }
+  .pagination li a.current { color: #fff; background-color: var(--accent); }
+  .pagination li a.disabled { color: #5b636b; }
+  .pagination--pager { color: var(--muted); border-color: var(--border); }
+  .pagination--pager:hover { color: var(--link-hover); }
+  .pagination--pager.disabled { color: #5b636b; }
+
+  /* table of contents */
+  .toc { background-color: var(--surface); border-color: var(--border); }
+  .toc__menu a { color: var(--muted); border-bottom-color: var(--border); }
+  .toc__menu a:hover { color: #e7ecf1; background-color: #23272e; }
+
+  /* active nav list item */
+  .nav__list .active { background-color: var(--accent); }
+
+  /* notices */
+  .notice,
+  .notice--primary,
+  .notice--info,
+  .notice--warning,
+  .notice--success,
+  .notice--danger {
+    color: var(--text);
+    background-color: var(--surface);
+    border-left: 0.25em solid var(--accent);
+    box-shadow: none;
+  }
+  .notice a,
+  .notice--primary a,
+  .notice--info a,
+  .notice--warning a,
+  .notice--success a,
+  .notice--danger a { color: var(--link); }
+  .notice code,
+  .notice--primary code,
+  .notice--info code,
+  .notice--warning code,
+  .notice--success code,
+  .notice--danger code { background-color: var(--code-bg); }
+  .notice--info    { border-left-color: #6cc4dd; }
+  .notice--warning { border-left-color: #e0a458; }
+  .notice--success { border-left-color: #7bc47b; }
+  .notice--danger  { border-left-color: #e07b78; }
+
+  /* buttons */
+  .btn--inverse {
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+    background-color: var(--surface);
+  }
+  .btn--inverse:hover {
+    color: #fff !important;
+    border-color: var(--muted);
+  }
+
+  /* toggle control in dark mode */
+  .theme-toggle { color: var(--muted); border-color: var(--border); }
+  .theme-toggle:hover {
+    color: #e7ecf1;
+    border-color: var(--muted);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  .theme-toggle:focus-visible { outline-color: var(--link); }
+}
+
+/* in dark mode, show the sun (click -> go light) */
+[data-theme="dark"] .theme-toggle__icon--sun  { display: block; }
+[data-theme="dark"] .theme-toggle__icon--moon { display: none; }
+
+/* ---- 4. Smooth switch, respecting reduced motion ---- */
+body,
+.masthead,
+.greedy-nav,
+.page__footer,
+.sidebar,
+.page__content,
+a,
+.btn,
+.notice,
+.pagination--pager,
+div.highlighter-rouge,
+figure.highlight,
+p > code {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
