@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A252F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="promptGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="contextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="intentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="specGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2980B9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A5276;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#2C3E50">Agent Engineering Pyramid</text>
+  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#7F8C8D">Graph Engineering as the topological layer governing structure, communication, and knowledge flow</text>
+
+  <!-- Spec Layer (top) -->
+  <polygon points="250,130 550,130 500,200 300,200" fill="url(#specGrad)" filter="url(#shadow)" opacity="0.9"/>
+  <text x="400" y="152" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Specification Engineering</text>
+  <text x="400" y="172" text-anchor="middle" font-size="10" fill="#D6EAF8">Machine-readable policies &amp; standards for autonomous operation</text>
+
+  <!-- Intent Layer -->
+  <polygon points="200,200 600,200 550,275 250,275" fill="url(#intentGrad)" filter="url(#shadow)" opacity="0.9"/>
+  <text x="400" y="222" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Intent Engineering</text>
+  <text x="400" y="242" text-anchor="middle" font-size="10" fill="#D5F5E3">Organizational goals, values, and trade-off hierarchies</text>
+
+  <!-- Context Layer -->
+  <polygon points="160,275 640,275 590,350 210,350" fill="url(#contextGrad)" filter="url(#shadow)" opacity="0.9"/>
+  <text x="400" y="297" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Context Engineering</text>
+  <text x="400" y="317" text-anchor="middle" font-size="10" fill="#FEF9E7">What information an agent sees — retrieval, window mgmt, formatting</text>
+
+  <!-- Graph Engineering Layer (base, highlighted) -->
+  <polygon points="120,350 680,350 630,430 170,430" fill="url(#promptGrad)" filter="url(#shadow)" stroke="#C0392B" stroke-width="2"/>
+  <text x="400" y="375" text-anchor="middle" font-size="14" font-weight="bold" fill="white">★ Graph Engineering ★</text>
+  <text x="400" y="396" text-anchor="middle" font-size="10" fill="#FADBD8">The topological layer: who, how they connect, and how work flows</text>
+  <text x="400" y="416" text-anchor="middle" font-size="10" fill="#FADBD8">Org Graph (structure) + Work Graph (dynamic task graph)</text>
+
+  <!-- Prompt Layer (bottom) -->
+  <polygon points="80,430 720,430 670,510 130,510" fill="url(#promptGrad)" filter="url(#shadow)" opacity="0.7"/>
+  <text x="400" y="455" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Prompt Engineering</text>
+  <text x="400" y="475" text-anchor="middle" font-size="10" fill="#FADBD8">Crafting individual queries — necessary but insufficient for multi-step agents</text>
+
+  <!-- Connecting arrows (cumulative, layer subsumes) -->
+  <line x1="400" y1="130" x2="400" y2="130" stroke="#7F8C8D" stroke-width="1"/>
+  <text x="400" y="438" text-anchor="middle" font-size="9" fill="#7F8C8D">each layer subsumes the prior as a necessary foundation</text>
+
+  <!-- Legend -->
+  <rect x="570" y="490" width="14" height="14" fill="#E74C3C" opacity="0.9" rx="2"/>
+  <text x="590" y="502" font-size="9" fill="#7F8C8D">Graph Engineering (topological)</text>
+  <rect x="570" y="508" width="14" height="14" fill="#2C3E50" opacity="0.8" rx="2"/>
+  <text x="590" y="520" font-size="9" fill="#7F8C8D">Other layers (foundational)</text>
+</svg>
