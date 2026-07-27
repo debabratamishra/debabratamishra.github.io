@@ -25,7 +25,6 @@ Here is the problem nobody in the multi-agent community wants to say out loud: *
 
 The solution that has won out, and won out decisively, is **graph engineering**: the discipline of designing, structuring, and maintaining graph-topological relationships so that agents know *who* they are, *who* they can reach, and *what* the shape of their conversation looks like. This article walks through the math, the architecture, the frameworks, and, critically, the measurable results. Every claim is backed by a citation. Every code example produces real output.
 
----
 
 ## The Agent Engineering Pyramid
 
@@ -39,44 +38,6 @@ Before diving in, get the layering right. A growing body of work frames agent en
 | **Specification Engineering** | *How do we behave at scale?* | Machine-readable policies for autonomous multi-agent operation |
 
 Graph engineering operates *across* all four layers. It is the connective tissue that determines which information reaches which agent, through what pathway, and at what cost. Context engineering decides **what** an agent sees; graph engineering decides **who** the agent is, **who** it can talk to, and **what** the structure of that conversation looks like <sup><a href="#refs-explainx">[2]</a></sup>.
-
-> **The key insight:** Knowledge graphs structure what a system *knows*. Graph engineering structures who the system *is* <sup><a href="#refs-explainx">[2]</a></sup>.
-
----
-
-## Two Graphs, One System: Org Graph + Work Graph
-
-Every production multi-agent system runs two graphs simultaneously. The distinction matters:
-
-```
- ┌─────────────────────────────────────────────────────────┐
- │  ORG GRAPH (stable, long-lived)                         │
- │  ┌──────────┐   ┌──────────┐   ┌──────────────────┐     │
- │  │ Security  │───│  Payment │───│  Authentication │     │
- │  │  Agent    │   │  Agent   │   │  Agent          │     │
- │  └──────────┘   └──────────┘   └──────────────────┘     │
- │       ▲                   ▲                   ▲         │
- │       │  zone ownership,  │  message paths,   │         │
- │       │  governance edges │  audit trails     │         │
- └───────┼───────────────────┼───────────────────┼─────────┘
-         │                   │                   │
-         ▼                   ▼                   ▼
- ┌─────────────────────────────────────────────────────────┐
- │  WORK GRAPH (dynamic, per-task)                         │
- │  ┌─────┐    ┌─────┐    ┌─────────────────────────┐      │
- │  │Task │───▶│Sub- │───▶│  Result synthesis node  │      │
- │  │Node │    │Task │    │  (ephemeral)            │      │
- │  └─────┘    └─────┘    └─────────────────────────┘      │
- │  Edges split, merge, rewire as evidence arrives.        │
- │  Nodes exist only while work is active.                 │
- └─────────────────────────────────────────────────────────┘
-```
-
-The **Org Graph** is the skeleton: permanent agent roles, each with a named responsibility, domain ownership, preserved memory, and stable edges. It answers *who exists and what are their roles* <sup><a href="#refs-explainx">[2]</a></sup>. The **Work Graph** is generated on demand for each task, ephemeral, adaptive, rewiring itself as new evidence arrives. A code-review task with a security finding produces a fundamentally different Work Graph than a documentation query, even though the same Org Graph underlies both.
-
-This dual-graph architecture, stable topology over dynamic task graphs, is the pattern emerging across LangGraph, CrewAI, Anthropic's managed multi-agent systems, and the new <a href="https://aclanthology.org/2026.acl-demo.35/" target="_blank" rel="noopener">MASFactory</a> framework <sup><a href="#refs-masfactory">[14]</a></sup>.
-
----
 
 ## Mathematical Foundations
 
@@ -102,8 +63,6 @@ Traditional RAG retrieves a flat set of text chunks ranked by similarity. Graph-
 
 The <a href="https://arxiv.org/abs/2508.19855" target="_blank" rel="noopener">Youtu-GraphRAG</a> framework demonstrates the practical magnitude: **90.71% token cost savings** and **16.62% higher accuracy** over state-of-the-art baselines by fusing structural topology with subgraph semantics <sup><a href="#refs-youtu">[5]</a></sup>.
 
----
-
 ## The Five Criteria for Production Context Quality
 
 For graph-structured context to work in production, it must satisfy five criteria from the emerging agent engineering taxonomy <sup><a href="#refs-pyramid">[1]</a></sup>:
@@ -111,12 +70,10 @@ For graph-structured context to work in production, it must satisfy five criteri
 | Criterion | What it means | How graphs help |
 |---|---|---|
 | **Relevance** | Retrieved info is directly applicable | Topology prunes irrelevant branches |
-| **Sufficiency** | Enough info for the agent to act | Org Graph preserves domain ownership; Work Graph expands on demand |
+| **Sufficiency** | Enough info for the agent to act | Stable agent roles preserve domain ownership; dynamic per-task subgraphs expand on demand |
 | **Isolation** | No confusing cross-domain noise | Graph partitioning (zone defense) limits each agent to its subgraph |
 | **Economy** | Compressed, no waste | Edge sparsification and sub-sampling yield >90% token savings |
 | **Provenance** | Every fact is traceable | Edges carry source, path, and confidence metadata |
-
----
 
 ## How Graph Engineering Improves Multi-Agent Context
 
@@ -124,7 +81,7 @@ For graph-structured context to work in production, it must satisfy five criteri
 
 In a multi-agent system, the communication graph carries information. Every edge $(A, B)$ encodes not just a channel but *what was communicated, when, and under what conditions*. Graph engineering formalizes these patterns so that:
 
-1. **Redundant edges get pruned.** The **AgentPrune** framework solves the *Communication Redundancy* problem via spatio-temporal graph sparsification, identifying edges that carry information already reachable through shorter paths and removing them to cut latency and context consumption <sup><a href="#refs-gla">[6]</a></sup>.
+1. **Redundant edges get pruned.** The **AgentPrune** framework solves the *Communication Redundancy* problem via spatio temporal graph sparsification, identifying edges that carry information already reachable through shorter paths and removing them to cut latency and context consumption <sup><a href="#refs-gla">[6]</a></sup>.
 
 2. **Topology adapts to the task.** Fixed topologies waste tokens on edges irrelevant to the current task. Dynamic graph construction, building edges only between agents with semantically overlapping context windows, can reduce communication overhead by 40–60% in multi-turn settings.
 
@@ -147,8 +104,6 @@ Beyond retrieval, graph engineering shapes how agents coordinate:
 - **Graph Counselor** (ACL 2025) uses an Adaptive Graph Information Extraction Module (AGIEM) with a Planning Agent, a Thought Agent, and an Execution Agent, plus a Self-Reflection with Multiple Perspectives (SR) module for error correction via backward reasoning. Outperforms existing methods on multiple graph reasoning benchmarks <sup><a href="#refs-counselor">[10]</a></sup>.
 - **Graph-R1** applies end-to-end reinforcement learning to agentic GraphRAG, running a "think-retrieve-rethink-generate" loop with an integrated reward signal. Outperforms traditional GraphRAG and RL-enhanced RAG methods on FlashRAG benchmarks <sup><a href="#refs-graphr1">[11]</a></sup>.
 - **AnchorRAG** (2025) uses a predictor–retriever–supervisor agent trio for open-world retrieval without predefined anchor entities.
-
----
 
 ## Sample Code Demonstrations
 
@@ -324,7 +279,7 @@ Active agents: 3  |  Edges: 2
 [Observability Agent] relevance=0.533 | context_chunks=1
 ```
 
-The orchestrator dynamically wires the right agents for each task. A compliance query activates security and payment agents; a recommendation query activates the ML and data pipeline agents. The same Org Graph serves both, but the Work Graph is completely different.
+The orchestrator dynamically wires the right agents for each task. A compliance query activates security and payment agents; a recommendation query activates the ML and data pipeline agents. The same stable set of agent roles serves both tasks, but the active subgraph — which agents fire and how they connect — is completely different.
 
 ---
 
@@ -334,7 +289,7 @@ I ran a controlled simulation comparing flat vector retrieval against graph-stru
 
 <div style="text-align: center;">
   <img src="{{ site.baseurl }}/images/graph-engineering-benchmark.svg" alt="Benchmark comparison: Flat RAG vs Graph-Structured Retrieval accuracy across context sizes" style="max-width: 90%; height: auto;">
-  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 2: Accuracy comparison across context sizes. Graph-structured retrieval maintains high accuracy even at large context sizes where flat RAG degrades. The delta peaks at +25pp (context size 20) and reaches +32pp at context size 30. Generated from the minimal example code in the section above.</p>
+  <p style="font-style: italic; font-size: 0.9em; text-align: center;">Figure 2: Accuracy comparison across context sizes. Graph-structured retrieval maintains high accuracy even at large context sizes where flat RAG degrades. The delta peaks at +25 percentage points (context size 20) and reaches +32pp at context size 30. Generated from the minimal example code in the section above.</p>
 </div>
 
 | Context Size | Flat RAG | GraphRAG | Delta |
@@ -351,9 +306,6 @@ I ran a controlled simulation comparing flat vector retrieval against graph-stru
 The pattern is clear and unforgiving for flat retrieval. At small context sizes, both approaches work fine, the "lost in the middle" problem hasn't hit yet. But as context grows, flat retrieval's accuracy collapses from 98% to 36% while graph-structured retrieval only drops from 98% to 68%. **At context size 30, GraphRAG delivers +32 percentage points over flat RAG.**
 
 > **Important caveat:** This is a minimal example with community-structured embeddings and deterministic graph traversal. Published benchmarks (GoA, Youtu-GraphRAG, KnowGPT) use real LLM evaluations across diverse domains. The example demonstrates the *structural mechanism*, topology-aware retrieval preserves accuracy at scale, that published papers confirm empirically <sup><a href="#refs-survey">[4]</a></sup> <sup><a href="#refs-goA">[16]</a></sup>.
-
-
-
 
 ## Frameworks and Tooling at a Glance
 
@@ -375,8 +327,6 @@ The pattern is clear and unforgiving for flat retrieval. At small context sizes,
   <iframe width="560" height="315" src="https://www.youtube.com/embed/44eFf-tRiSg" title="Intro to Agent Builder, OpenAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
 
----
-
 ## The Hard Numbers: What Graph Engineering Actually Delivers
 
 Real benchmarks, from real papers. No hand-waving, just the numbers that matter.
@@ -386,69 +336,64 @@ Real benchmarks, from real papers. No hand-waving, just the numbers that matter.
 | Method | Benchmark | Metric | Result | Source |
 |---|---|---|---|---|
 | Flat RAG (baseline) | LongBench (2K) | RAG F₁ | baseline | N/A |
-| Chain-of-Agents (CoA) | LongBench (2K) | RAG F₁ | baseline + 0% | [<sup><a href="#refs-goA">[16]</a></sup>] |
-| **Graph of Agents (GoA)** | LongBench (2K) | RAG F₁ | **+4.8pp** over baseline | [<sup><a href="#refs-goA">[16]</a></sup>] |
-| GoA vs. CoA | LongBench (2K) | RAG F₁ | **+10.1pp** over CoA | [<sup><a href="#refs-goA">[16]</a></sup>] |
-| **Youtu-GraphRAG** | Various | Accuracy gain | **+16.62%** over SOTA | [<sup><a href="#refs-youtu">[5]</a></sup>] |
-| KnowGPT | OpenBookQA | Accuracy | **92.6%** (vs. GPT-4) | [<sup><a href="#refs-knowgpt">[7]</a></sup>] |
-| KnowGPT | CommonsenseQA | Avg. improvement | **+23.7%** over GPT-3.5 | [<sup><a href="#refs-knowgpt">[7]</a></sup>] |
-| GSR (3B model) | WebQSP | F₁ | **+9.2%** over SOTA | [<sup><a href="#refs-gsr">[9]</a></sup>] |
-| GSR (3B model) | CWQ | F₁ | **+5.3%** over SOTA | [<sup><a href="#refs-gsr">[9]</a></sup>] |
+| Chain-of-Agents (CoA) | LongBench (2K) | RAG F₁ | baseline + 0% | <sup><a href="#refs-goA">[16]</a></sup> |
+| **Graph of Agents (GoA)** | LongBench (2K) | RAG F₁ | **+4.8pp** over baseline | <sup><a href="#refs-goA">[16]</a></sup> |
+| GoA vs. CoA | LongBench (2K) | RAG F₁ | **+10.1pp** over CoA | <sup><a href="#refs-goA">[16]</a></sup> |
+| **Youtu-GraphRAG** | Various | Accuracy gain | **+16.62%** over SOTA | <sup><a href="#refs-youtu">[5]</a></sup> |
+| KnowGPT | OpenBookQA | Accuracy | **92.6%** (vs. GPT-4) | <sup><a href="#refs-knowgpt">[7]</a></sup> |
+| KnowGPT | CommonsenseQA | Avg. improvement | **+23.7%** over GPT-3.5 | <sup><a href="#refs-knowgpt">[7]</a></sup> |
+| GSR (3B model) | WebQSP | F₁ | **+9.2%** over SOTA | <sup><a href="#refs-gsr">[9]</a></sup> |
+| GSR (3B model) | CWQ | F₁ | **+5.3%** over SOTA | <sup><a href="#refs-gsr">[9]</a></sup> |
 
 ### Token Efficiency
 
 | Method | Token Cost Reduction | Source |
 |---|---|---|
-| **Youtu-GraphRAG** | **90.71%** savings | [<sup><a href="#refs-youtu">[5]</a></sup>] |
-| Graph compression + sub-sampling | Up to ~40% reduction in retrieval redundancy | [<sup><a href="#refs-survey">[4]</a></sup>] |
-| AgentPrune (communication sparsification) | Proportional to redundant edge removal | [<sup><a href="#refs-gla">[6]</a></sup>] |
+| **Youtu-GraphRAG** | **90.71%** savings | <sup><a href="#refs-youtu">[5]</a></sup> |
+| Graph compression + sub-sampling | Up to ~40% reduction in retrieval redundancy | <sup><a href="#refs-survey">[4]</a></sup> |
+| AgentPrune (communication sparsification) | Proportional to redundant edge removal | <sup><a href="#refs-gla">[6]</a></sup> |
 
 ### Multi-Agent Coordination Gains
 
-The **Fable advisor-orchestrator** pattern, an open-source analysis of production agent graph architectures, reports hitting **~92% of single-agent quality on SWE-bench Pro while using ~63% of the cost**. This is an illustrative benchmark from an independent analysis [<sup><a href="#refs-explainx">[2]</a></sup>]; individual production results will vary, and the explainx.ai report is a secondary source, not a peer-reviewed paper. Treat this as a reasonable order-of-magnitude reference, not a rigorous empirical result.
+The **Fable advisor-orchestrator** pattern, an open-source analysis of production agent graph architectures, reports hitting **~92% of single-agent quality on SWE-bench Pro while using ~63% of the cost**. This is an illustrative benchmark from an independent analysis <sup><a href="#refs-explainx">[2]</a></sup>; individual production results will vary, and the explainx.ai report is a secondary source, not a peer-reviewed paper. Treat this as a reasonable order-of-magnitude reference, not a rigorous empirical result.
 
----
 
 ## The Reality Check: Where Graph Engineering Still Falls Short
 
 The data is impressive, but let's be honest about what doesn't work yet.
 
-**Graph construction is still expensive.** Converting freeform text into structured triples requires LLM calls that add latency and cost. The extraction step itself can become a bottleneck in production. And weak extraction prompts risk parsing non-relationships as edges, turning "I wish our platform worked with Salesforce" into a false `INTEGRATES_WITH` edge that corrupts every downstream retrieval [<sup><a href="#refs-gla">[6]</a></sup>].
+**Graph construction is still expensive.** Converting freeform text into structured triples requires LLM calls that add latency and cost. The extraction step itself can become a bottleneck in production. And weak extraction prompts risk parsing non-relationships as edges, turning "I wish our platform worked with Salesforce" into a false `INTEGRATES_WITH` edge that corrupts every downstream retrieval <sup><a href="#refs-gla">[6]</a></sup>.
 
-**The accuracy gap may not be as dramatic in practice.** The Wolff & Bennati (2025) head-to-head comparison found that Graphiti's accuracy advantage over mem0 was **not statistically significant** ($p = 0.2269$ unconstrained, $p = 0.4330$ constrained), at **40.2% higher cost** [<sup><a href="#refs-wolff">[20]</a></sup>]. GraphRAG pilots succeed. Production deployments fail quietly. As Gradient Flow puts it: "We barely know of any examples of production deployments that are offering real business value."
+**The accuracy gap may not be as dramatic in practice.** The Wolff & Bennati (2025) head-to-head comparison found that Graphiti's accuracy advantage over mem0 was **not statistically significant** ($p = 0.2269$ unconstrained, $p = 0.4330$ constrained), at **40.2% higher cost** <sup><a href="#refs-wolff">[20]</a></sup>. GraphRAG pilots succeed. Production deployments fail quietly. As Gradient Flow puts it: "We barely know of any examples of production deployments that are offering real business value."
 
-**The over-smoothing problem hits multi-agent systems too.** As agents exchange information over many rounds, their representations converge to an indistinguishable equilibrium, the graph loses discriminative power. This is GNN over-smoothing applied to agent coordination, and it means multi-agent graph architectures need careful depth management [<sup><a href="#refs-gla">[6]</a></sup>].
+**The over-smoothing problem hits multi-agent systems too.** As agents exchange information over many rounds, their representations converge to an indistinguishable equilibrium, the graph loses discriminative power. This is GNN over-smoothing applied to agent coordination, and it means multi-agent graph architectures need careful depth management <sup><a href="#refs-gla">[6]</a></sup>.
 
----
 
 <p style="text-align: center; font-size: 0.85em; color: #888; margin-top: 1.5em;">▸ Andrej Karpathy walks through the shift from "loopy" agent chains to graph-structured multi-agent systems, and why the graph perspective changes how you design, debug, and scale production agents.</p>
 <p style="text-align: center;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/kwSVtQ7dziU" title="Skill Issue: Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
 
----
 
 ## Where This Is Heading
 
 Three threads are pulling graph engineering forward in 2026 and beyond:
 
-**Hierarchical graphs.** The Org Graph / Work Graph split is just the first level. The next step is graphs-at-multiple-scales, team-level graphs, project-level graphs, and organization-level graphs, with information flowing upward for aggregation and downward for delegation. <a href="https://aclanthology.org/2026.acl-demo.35/" target="_blank" rel="noopener">MASFactory</a> begins exploring this with "Vibe Graphing," where natural-language intent gets compiled into executable graph structures [<sup><a href="#refs-masfactory">[14]</a></sup>].
+**Hierarchical graphs.** Static agent role assignments — each agent owns a fixed domain — work for simple systems, but real organizations need graphs-at-multiple-scales, team-level graphs, project-level graphs, and organization-level graphs, with information flowing upward for aggregation and downward for delegation. <a href="https://aclanthology.org/2026.acl-demo.35/" target="_blank" rel="noopener">MASFactory</a> begins exploring this with "Vibe Graphing," where natural-language intent gets compiled into executable graph structures <sup><a href="#refs-masfactory">[14]</a></sup>.
 
-**Learnable graph topologies.** Current systems construct graphs statically or heuristically. <a href="https://arxiv.org/abs/2507.21892v2" target="_blank" rel="noopener">Graph-R1</a> is a proof-of-concept that RL can optimize graph topology as a trainable parameter, the structure itself becomes something the system learns rather than something humans design [<sup><a href="#refs-graphr1">[11]</a></sup>].
+**Learnable graph topologies.** Current systems construct graphs statically or heuristically. <a href="https://arxiv.org/abs/2507.21892v2" target="_blank" rel="noopener">Graph-R1</a> is a proof-of-concept that RL can optimize graph topology as a trainable parameter, the structure itself becomes something the system learns rather than something humans design <sup><a href="#refs-graphr1">[11]</a></sup>.
 
-**Multi-graph memory for agents.** <a href="https://aclanthology.org/2026.acl-long.1709.pdf" target="_blank" rel="noopener">MAGMA</a> (ACL 2026) proposes agents maintain multiple coexisting graphs, a knowledge graph for facts, a communication graph for interaction history, and a task graph for active work, each with its own update rules and access patterns. This separation of concerns could make multi-agent reasoning more transparent and debuggable than any single unified graph [<sup><a href="#refs-magma">[13]</a></sup>].
+**Multi-graph memory for agents.** <a href="https://aclanthology.org/2026.acl-long.1709.pdf" target="_blank" rel="noopener">MAGMA</a> (ACL 2026) proposes agents maintain multiple coexisting graphs, a knowledge graph for facts, a communication graph for interaction history, and a task graph for active work, each with its own update rules and access patterns. This separation of concerns could make multi-agent reasoning more transparent and debuggable than any single unified graph <sup><a href="#refs-magma">[13]</a></sup>.
 
----
 
 ## Bottom Line
 
 Graph engineering is not "knowledge graphs for LLMs" with a fancier name. It is the discipline of wiring multi-agent systems so that attention, communication, and reasoning all respect the topology of the problem, not just the order of the tokens.
 
-The evidence is unambiguous. A 2K-context model with GoA beats a 128K baseline on LongBench. GraphRAG slashes token costs by 90% while improving accuracy. GSR retrievers at 3B parameters outperform 7B models by 7.7× on subgraph retrieval. And the emerging dual-graph architecture, stable Org Graph over dynamic Work Graph, gives you both the governance you need for production and the adaptability you need for complex tasks.
+The evidence is unambiguous. A 2K-context model with GoA beats a 128K baseline on LongBench. GraphRAG slashes token costs by 90% while improving accuracy. GSR retrievers at 3B parameters outperform 7B models by 7.7× on subgraph retrieval. And the emerging pattern of stable agent roles with dynamically wired per-task subgraphs gives you both the governance you need for production and the adaptability you need for complex tasks.
 
 The punchline: context engineering determines what an agent has access to. Graph engineering determines how that information is structured, who can reach it, and at what cost. In production multi-agent systems, that is the difference between scaling gracefully and collapsing under your own complexity.
 
----
 
 ## References
 
