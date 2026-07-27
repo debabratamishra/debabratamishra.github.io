@@ -322,7 +322,7 @@ The pattern is clear and unforgiving for flat retrieval. At small context sizes,
 | **MASFactory** (ACL 2026 Demo) | Graph-centric orchestration | "Vibe Graphing", NL intent → executable graph | 2026 |
 | **MAGMA** (ACL 2026) | Multi-graph agentic memory | Four orthogonal graphs: Semantic, Temporal, Causal, Entity | 2026 |
 
-<p style="text-align: center; font-size: 0.85em; color: #888; margin-top: 1em;">▸ OpenAI recently shipped a visual graph-based workflow builder for multi-agent pipelines, this walkthrough shows how quickly you can wire up agents, routers, and branches without writing orchestration code.</p>
+<p style="text-align: center; font-size: 0.85em; color: #888; margin-top: 1em;">▸ OpenAI shipped a visual graph-based workflow builder for multi-agent pipelines, this walkthrough shows how quickly you can wire up agents, routers, and branches without writing orchestration code.</p>
 <p style="text-align: center;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/44eFf-tRiSg" title="Intro to Agent Builder, OpenAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
