@@ -13,7 +13,7 @@ comments: true
 
 Here is the problem nobody in the multi-agent community wants to say out loud: **your LLM's context window is finite, but the world of relevant information is not.** Flat, text-only context management, append tokens until you hit the limit, then pray the model remembers what mattered, works for simple conversations but buckles the moment you have more than a handful of agents exchanging messages across multiple turns.
 
-<figure style="text-align: center; margin: 1.5em 0;">
+<figure style="text-align: center; margin: 1.5em 0; display: flex; justify-content: center; flex-wrap: wrap;">
   <img src="{{ site.baseurl }}/images/graph-engineering-pyramid.svg" alt="Agent Engineering Pyramid, from Prompt Engineering at the top to Graph Engineering at the base" style="max-width: 85%; height: auto;">
   <figcaption style="font-style: italic; font-size: 0.9em; margin-top: 0.5em; color: #555;">Figure 1: Agent Engineering as a cumulative pyramid, graph engineering forms the topological foundation that every higher layer depends on. Each layer subsumes the prior as a necessary foundation <sup><a href="#refs-pyramid">[1]</a></sup>.</figcaption>
 </figure>
