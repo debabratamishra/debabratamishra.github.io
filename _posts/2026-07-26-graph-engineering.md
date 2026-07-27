@@ -22,6 +22,7 @@ Here is the problem nobody in the multi-agent community wants to say out loud: *
 <p style="text-align: center;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/_IlTcWciEC4" title="Context Engineering for Agents, Lance Martin, LangChain" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
+<p style="text-align: center; font-size: 0.8em; color: #888; margin-top: 0.3em;"><em>Video: "Context Engineering for Agents" by Lance Martin, LangChain. Copyright © the creator. Embedded for educational reference.</em></p>
 
 The solution that has won out, and won out decisively, is **graph engineering**: the discipline of designing, structuring, and maintaining graph-topological relationships so that agents know *who* they are, *who* they can reach, and *what* the shape of their conversation looks like. This article walks through the math, the architecture, the frameworks, and, critically, the measurable results. Every claim is backed by a citation. Every code example produces real output.
 
@@ -326,6 +327,7 @@ The pattern is clear and unforgiving for flat retrieval. At small context sizes,
 <p style="text-align: center;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/44eFf-tRiSg" title="Intro to Agent Builder, OpenAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
+<p style="text-align: center; font-size: 0.8em; color: #888; margin-top: 0.3em;"><em>Video: "Intro to Agent Builder" by OpenAI. Copyright © the creator. Embedded for educational reference.</em></p>
 
 ## The Hard Numbers: What Graph Engineering Actually Delivers
 
@@ -373,6 +375,7 @@ The data is impressive, but let's be honest about what doesn't work yet.
 <p style="text-align: center;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/kwSVtQ7dziU" title="Skill Issue: Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="max-width: 100%;"></iframe>
 </p>
+<p style="text-align: center; font-size: 0.8em; color: #888; margin-top: 0.3em;"><em>Video: "Skill Issue: Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI" by Andrej Karpathy. Copyright © the creator. Embedded for educational reference.</em></p>
 
 
 ## Where This Is Heading
