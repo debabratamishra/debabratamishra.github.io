@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 370" width="700" height="370" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8F9FA"/>
+    </linearGradient>
+    <linearGradient id="flatGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E74C3C"/>
+      <stop offset="100%" stop-color="#C0392B"/>
+    </linearGradient>
+    <linearGradient id="graphGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2ECC71"/>
+      <stop offset="100%" stop-color="#1E8449"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  <rect width="700" height="370" fill="url(#bg)" rx="8"/>
+
+  <text x="350" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#2C3E50">Flat RAG vs Graph-Structured Retrieval</text>
+  <text x="350" y="37" text-anchor="middle" font-size="8" fill="#95A5A6">Accuracy on a 100-node knowledge graph with 5 semantic communities. Generated from minimal example code.</text>
+
+  <g transform="translate(70, 50)">
+    <!-- Y-axis -->
+    <line x1="0" y1="0" x2="0" y2="270" stroke="#BDC3C7" stroke-width="0.5"/>
+    <!-- X-axis -->
+    <line x1="0" y1="270" x2="600" y2="270" stroke="#BDC3C7" stroke-width="0.5"/>
+
+    <!-- Y-axis ticks and labels -->
+    <line x1="-4" y1="0" x2="0" y2="0" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="4" text-anchor="end" font-size="7" fill="#7F8C8D">100%</text>
+
+    <line x1="-4" y1="54" x2="0" y2="54" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="58" text-anchor="end" font-size="7" fill="#7F8C8D">80%</text>
+
+    <line x1="-4" y1="108" x2="0" y2="108" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="112" text-anchor="end" font-size="7" fill="#7F8C8D">60%</text>
+
+    <line x1="-4" y1="162" x2="0" y2="162" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="166" text-anchor="end" font-size="7" fill="#7F8C8D">40%</text>
+
+    <line x1="-4" y1="216" x2="0" y2="216" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="220" text-anchor="end" font-size="7" fill="#7F8C8D">20%</text>
+
+    <line x1="-4" y1="270" x2="0" y2="270" stroke="#BDC3C7" stroke-width="0.5"/>
+    <text x="-10" y="274" text-anchor="end" font-size="7" fill="#7F8C8D">0%</text>
+
+    <!-- Grid lines -->
+    <line x1="0" y1="54" x2="600" y2="54" stroke="#ECF0F1" stroke-width="0.3" stroke-dasharray="2,2"/>
+    <line x1="0" y1="108" x2="600" y2="108" stroke="#ECF0F1" stroke-width="0.3" stroke-dasharray="2,2"/>
+    <line x1="0" y1="162" x2="600" y2="162" stroke="#ECF0F1" stroke-width="0.3" stroke-dasharray="2,2"/>
+    <line x1="0" y1="216" x2="600" y2="216" stroke="#ECF0F1" stroke-width="0.3" stroke-dasharray="2,2"/>
+    <line x1="0" y1="270" x2="600" y2="270" stroke="#ECF0F1" stroke-width="0.3" stroke-dasharray="2,2"/>
+
+    <!-- X-axis ticks -->
+    <line x1="0" y1="270" x2="0" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="90" y1="270" x2="90" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="180" y1="270" x2="180" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="270" y1="270" x2="270" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="360" y1="270" x2="360" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="450" y1="270" x2="450" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="540" y1="270" x2="540" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="630" y1="270" x2="630" y2="275" stroke="#BDC3C7" stroke-width="0.5"/>
+
+    <!-- X-axis labels -->
+    <text x="0" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">1</text>
+    <text x="90" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">3</text>
+    <text x="180" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">5</text>
+    <text x="270" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">10</text>
+    <text x="360" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">15</text>
+    <text x="450" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">20</text>
+    <text x="540" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">25</text>
+    <text x="630" y="290" text-anchor="middle" font-size="7" fill="#7F8C8D">30</text>
+
+    <!-- X-axis title -->
+    <text x="300" y="312" text-anchor="middle" font-size="8" fill="#2C3E50" font-weight="bold">Context Size (entities)</text>
+
+    <!-- Flat RAG line (red, dashed) -->
+    <polyline points="0,0 90,14 180,42 270,126 360,196 450,224 540,238 630,252"
+             fill="none" stroke="url(#flatGrad)" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <circle cx="0" cy="0" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="90" cy="14" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="180" cy="42" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="270" cy="126" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="360" cy="196" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="450" cy="224" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="540" cy="238" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+    <circle cx="630" cy="252" r="3" fill="#E74C3C" filter="url(#shadow)"/>
+
+    <!-- Graph RAG line (green, solid) -->
+    <polyline points="0,0 90,8 180,24 270,70 360,112 450,126 540,140 630,146"
+             fill="none" stroke="url(#graphGrad)" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="90" cy="8" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="180" cy="24" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="270" cy="70" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="360" cy="112" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="450" cy="126" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="540" cy="140" r="3" fill="#27AE60" filter="url(#shadow)"/>
+    <circle cx="630" cy="146" r="3" fill="#27AE60" filter="url(#shadow)"/>
+
+    <!-- Delta annotations -->
+    <line x1="450" y1="126" x2="450" y2="224" stroke="#F39C12" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="456" y="178" font-size="7" fill="#F39C12" font-weight="bold">+25pp</text>
+
+    <line x1="630" y1="146" x2="630" y2="252" stroke="#F39C12" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="636" y="202" font-size="7" fill="#F39C12" font-weight="bold">+32pp</text>
+
+    <!-- Legend -->
+    <rect x="380" y="10" width="12" height="12" fill="url(#flatGrad)" rx="2" opacity="0.9"/>
+    <text x="396" y="20" font-size="7" fill="#7F8C8D">Flat RAG</text>
+    <rect x="455" y="10" width="12" height="12" fill="url(#graphGrad)" rx="2"/>
+    <text x="471" y="20" font-size="7" fill="#7F8C8D">Graph-Structured Retrieval</text>
+  </g>
+</svg>
