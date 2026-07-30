@@ -14,6 +14,17 @@ $indent-var                 : 1.3em;
 
 $font-display               : 'Space Grotesk', sans-serif;
 $font-mono                  : 'JetBrains Mono', monospace;
+$monospace                  : $font-mono;
+
+/* Legacy aliases — vendored partials still reference these */
+$sans-serif                  : $font-display;
+$sans-serif-narrow           : $font-display;
+$serif                       : $font-display;
+$georgia                    : $font-display;
+$times                      : $font-display;
+$bodoni                     : $font-display;
+$calisto                    : $font-display;
+$garamond                   : $font-display;
 
 $global-font-family         : $font-display;
 $header-font-family         : $font-display;
@@ -61,6 +72,8 @@ $type-size-8                : 0.625em;  // ~10px
 }
 
 /* Legacy SCSS aliases for backward compat */
+$code-background-color: #fafafa;
+$code-background-color-dark: #F0F0F0;
 $gray: #6B6B6B;
 $dark-gray: #1A1A1A;
 $lighter-gray: #DCDCDC;
