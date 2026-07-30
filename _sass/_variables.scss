@@ -12,25 +12,12 @@ $doc-font-size              : 16;
 $paragraph-indent           : false; // true, false (default)
 $indent-var                 : 1.3em;
 
-/* system typefaces */
-$serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$font-display               : 'Space Grotesk', sans-serif;
+$font-mono                  : 'JetBrains Mono', monospace;
 
-/* sans serif typefaces */
-$sans-serif-narrow          : $sans-serif;
-$helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
-
-/* serif typefaces */
-$georgia                    : Georgia, serif;
-$times                      : Times, serif;
-$bodoni                     : "Bodoni MT", serif;
-$calisto                    : "Calisto MT", serif;
-$garamond                   : Garamond, serif;
-
-$global-font-family         : $sans-serif;
-$header-font-family         : $sans-serif;
-$caption-font-family        : $serif;
+$global-font-family         : $font-display;
+$header-font-family         : $font-display;
+$caption-font-family        : $font-mono;
 
 /* type scale */
 $type-size-1                : 2.441em;  // ~39.056px
