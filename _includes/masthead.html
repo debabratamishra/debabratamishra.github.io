@@ -1,41 +1,15 @@
 {% include base_path %}
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--logo">
-            <a href="{{ base_path }}/">{{ site.title }}</a>
-          </li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
-
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light / dark theme" aria-pressed="false" title="Switch to dark theme">
-      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="4"></line>
-        <line x1="12" y1="20" x2="12" y2="23"></line>
-        <line x1="1" y1="12" x2="4" y2="12"></line>
-        <line x1="20" y1="12" x2="23" y2="12"></line>
-        <line x1="4.2" y1="4.2" x2="6.3" y2="6.3"></line>
-        <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"></line>
-        <line x1="4.2" y1="19.8" x2="6.3" y2="17.7"></line>
-        <line x1="17.7" y1="6.3" x2="19.8" y2="4.2"></line>
-      </svg>
-      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    </button>
-  </div>
-</div>
+<nav class="nav-pill" role="navigation" aria-label="Main navigation">
+  <div class="nav-pill__logo">{{ site.title | slice: 0, 2 }}</div>
+  <ul class="nav-pill__links">
+    {% for link in site.data.navigation.main %}
+      <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{{ base_path }}/feed.xml" class="nav-pill__feed" title="RSS Feed" aria-label="RSS Feed">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/>
+    </svg>
+  </a>
+</nav>
