@@ -5,63 +5,97 @@ title: Debabrata Mishra
 
 <section class="hero">
   <div class="hero__inner">
-    <div class="hero__text">
-      <h1 class="hero__name">Debabrata Mishra</h1>
-      <p class="hero__role">Senior Data Scientist — AI &amp; Graph Systems</p>
-      <p class="hero__thesis">I build multi-agent AI systems that reason over structured knowledge</p>
-      <div class="hero__actions">
-        <a href="{{ base_path }}/about/" class="btn btn--accent">About</a>
-      </div>
+    <h1 class="hero__name">Debabrata Mishra</h1>
+    <p class="hero__role">Senior Data Scientist — AI &amp; Graph Systems</p>
+    <p class="hero__thesis">I build multi-agent AI systems that reason over structured knowledge.</p>
+    <div class="hero__actions">
+      <a href="{{ base_path }}/about/" class="btn btn--accent">About</a>
     </div>
-    <div class="hero__portrait">
-      <img src="{{ '/images/bio-photo.jpg' | relative_url }}" alt="Debabrata Mishra" loading="eager">
-    </div>
-  </div>
-  <div class="hero__visual" aria-hidden="true">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="hero__svg">
-      <g class="hero__links">
-        <line class="hero__link" x1="100" y1="40" x2="60" y2="80"/>
-        <line class="hero__link" x1="100" y1="40" x2="140" y2="80"/>
-        <line class="hero__link" x1="60" y1="80" x2="40" y2="140"/>
-        <line class="hero__link" x1="60" y1="80" x2="80" y2="130"/>
-        <line class="hero__link" x1="140" y1="80" x2="160" y2="140"/>
-        <line class="hero__link" x1="140" y1="80" x2="120" y2="130"/>
-        <line class="hero__link" x1="40" y1="140" x2="80" y2="130"/>
-        <line class="hero__link" x1="160" y1="140" x2="120" y2="130"/>
-        <line class="hero__link" x1="100" y1="40" x2="100" y2="0"/>
-        <line class="hero__link" x1="100" y1="0" x2="60" y2="40"/>
-        <line class="hero__link" x1="100" y1="0" x2="140" y2="40"/>
-      </g>
-      <g class="hero__nodes">
-        <circle class="hero__node" cx="100" cy="0" r="4"/>
-        <circle class="hero__node" cx="60" cy="40" r="4"/>
-        <circle class="hero__node" cx="140" cy="40" r="4"/>
-        <circle class="hero__node" cx="100" cy="40" r="4"/>
-        <circle class="hero__node" cx="40" cy="140" r="4"/>
-        <circle class="hero__node" cx="80" cy="130" r="4"/>
-        <circle class="hero__node" cx="120" cy="130" r="4"/>
-        <circle class="hero__node" cx="160" cy="140" r="4"/>
-      </g>
-    </svg>
   </div>
 </section>
 
-<section class="posts-dashboard">
-  <h2 class="posts-dashboard__title">Recent Work</h2>
-  <div class="posts-dashboard__grid">
-    {% for post in site.posts limit:2 %}
-      <article class="post-card">
-        <h3 class="post-card__title">
-          <a href="{{ post.url | relative_url }}">{{ post.title | markdownify | strip_html | strip_newlines }}</a>
-        </h3>
-        <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-        <div class="post-card__tags">
-          {% for tag in post.tags limit:2 %}
-            <span class="post-card__tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      </article>
-    {% endfor %}
+<main class="content">
+
+  <section class="section" id="what-i-build">
+    <span class="section__label">01</span>
+    <h2 class="section__title">What I Build</h2>
+    <div class="section__body">
+      <p>I design and engineer AI systems that operate at the intersection of structured knowledge and autonomous reasoning. My work spans multi-agent architectures, graph-based inference pipelines, and production ML platforms that ship.</p>
+      <ul class="work-list">
+        <li>
+          <strong>Multi-Agent Reasoning</strong> — orchestrating agent teams that deliberatate over graph-structured knowledge bases
+        </li>
+        <li>
+          <strong>Graph-Native ML</strong> — building inference systems where the data model is a graph, not a table
+        </li>
+        <li>
+          <strong>Production AI</strong> — taking research prototypes to reliable, monitorable systems
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="what-i-believe">
+    <span class="section__label">02</span>
+    <h2 class="section__title">What I Believe</h2>
+    <div class="section__body">
+      <ol class="beliefs-list">
+        <li><strong>The graph is the model.</strong> Structured relationships carry more signal than flat feature vectors — design for them first.</li>
+        <li><strong>Agents should deliberate, not just predict.</strong> Multi-agent systems that can reason about their own reasoning are the next frontier.</li>
+        <li><strong>Shipping is a skill.</strong> Prototypes are hypotheses; production systems are beliefs. I build the bridge between the two.</li>
+        <li><strong>The best infrastructure disappears.</strong> If users notice your ML pipeline, you've already failed.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="selected-work">
+    <span class="section__label">03</span>
+    <h2 class="section__title">Selected Work</h2>
+    <div class="section__body">
+      <div class="work-grid">
+        {% for post in site.posts limit:3 %}
+          <article class="work-card">
+            <h3 class="work-card__title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | markdownify | strip_html | strip_newlines }}</a>
+            </h3>
+            <time class="work-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+            <div class="work-card__tags">
+              {% for tag in post.tags limit:3 %}
+                <span class="work-card__tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      <a href="{{ base_path }}/year-archive/" class="btn btn--accent">View all posts</a>
+    </div>
+  </section>
+
+  <section class="section" id="writing">
+    <span class="section__label">04</span>
+    <h2 class="section__title">Writing</h2>
+    <div class="section__body">
+      <p>I write about AI systems, graph engineering, and the practice of building. Essays and long-form pieces.</p>
+      <ul class="writing-list">
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title | markdownify | strip_html | strip_newlines }}</a>
+            <span class="writing-list__date">{{ post.date | date: "%b %d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__copy">&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Built with Jekyll.</span>
+    <nav class="footer__nav">
+      <a href="{{ base_path }}/">Home</a>
+      <a href="{{ base_path }}/year-archive/">Writing</a>
+      <a href="{{ base_path }}/about/">About</a>
+    </nav>
   </div>
-  <a href="{{ base_path }}/year-archive/" class="btn btn--accent">View all posts</a>
-</section>
+</footer>
