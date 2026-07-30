@@ -1,11 +1,8 @@
 ---
-permalink: /
-title: 
-excerpt: "About me"
+layout: single
+title: About
+permalink: /about/
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
 Hey there! I'm Deb, a Machine Learning enthusiast and researcher with a passion for solving real world problems using AI. My journey has taken me through diverse domains from advancing hearing science and building specialized large language models to developing AI-driven medical imaging solutions and designing scalable ML architectures that serve millions of users globally.
