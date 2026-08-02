@@ -19,3 +19,18 @@
     opacity: 1;
   }
 }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nn-signal,
+  .nn-backprop {
+    visibility: hidden;
+  }
+  .hero__scan {
+    animation: none !important;
+  }
+  .skeleton__line {
+    animation: none !important;
+    opacity: 0.6;
+  }
+}

@@ -13,33 +13,253 @@ title: Debabrata Mishra
     <!-- Grid lines -->
     <div class="hero__grid" aria-hidden="true"></div>
 
-    <!-- Orbital paths -->
+    <!-- Neural network visualization -->
     <div class="hero__orbits" aria-hidden="true">
-      <svg viewBox="0 0 800 800" class="hero__orbit-svg">
-        <ellipse cx="550" cy="350" rx="280" ry="120" fill="none" stroke="rgba(42,42,42,0.12)" stroke-width="0.5"/>
-        <ellipse cx="550" cy="350" rx="200" ry="80" fill="none" stroke="rgba(42,42,42,0.08)" stroke-width="0.5"/>
-        <ellipse cx="550" cy="350" rx="150" ry="55" fill="none" stroke="rgba(42,42,42,0.06)" stroke-width="0.5"/>
-        <circle cx="550" cy="350" r="5" fill="rgba(42,42,42,0.2)"/>
+      <svg viewBox="380 120 680 580" class="hero__orbit-svg">
+        <defs>
+          <style>
+            .nn-conn { stroke: rgba(42,42,42,0.12); stroke-width: 0.7; fill: none; }
+            .nn-node { fill: rgba(42,42,42,0.2); }
+            .nn-node--hub { fill: rgba(42,42,42,0.4); }
+            .nn-node--core { fill: rgba(42,42,42,0.45); }
+          </style>
+          <filter id="nn-signal-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="nn-node-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="nn-backprop-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Connections: Input → Hidden only -->
+        <g class="nn-conns">
+          <line class="nn-conn" x1="440" y1="200" x2="700" y2="200"/>
+          <line class="nn-conn" x1="440" y1="200" x2="700" y2="340"/>
+          <line class="nn-conn" x1="440" y1="200" x2="700" y2="480"/>
+          <line class="nn-conn" x1="440" y1="340" x2="700" y2="200"/>
+          <line class="nn-conn" x1="440" y1="340" x2="700" y2="340"/>
+          <line class="nn-conn" x1="440" y1="340" x2="700" y2="480"/>
+          <line class="nn-conn" x1="440" y1="480" x2="700" y2="200"/>
+          <line class="nn-conn" x1="440" y1="480" x2="700" y2="340"/>
+          <line class="nn-conn" x1="440" y1="480" x2="700" y2="480"/>
+          <line class="nn-conn" x1="440" y1="620" x2="700" y2="340"/>
+          <line class="nn-conn" x1="440" y1="620" x2="700" y2="480"/>
+          <line class="nn-conn" x1="440" y1="620" x2="700" y2="620"/>
+        </g>
+
+        <!-- Connections: Hidden → Output only -->
+        <g class="nn-conns">
+          <line class="nn-conn" x1="700" y1="200" x2="950" y2="260"/>
+          <line class="nn-conn" x1="700" y1="200" x2="950" y2="400"/>
+          <line class="nn-conn" x1="700" y1="340" x2="950" y2="260"/>
+          <line class="nn-conn" x1="700" y1="340" x2="950" y2="400"/>
+          <line class="nn-conn" x1="700" y1="340" x2="950" y2="540"/>
+          <line class="nn-conn" x1="700" y1="480" x2="950" y2="400"/>
+          <line class="nn-conn" x1="700" y1="480" x2="950" y2="540"/>
+          <line class="nn-conn" x1="700" y1="620" x2="950" y2="400"/>
+          <line class="nn-conn" x1="700" y1="620" x2="950" y2="540"/>
+        </g>
+
+        <!-- Signal paths: strictly input → hidden → output, no same-layer traversal -->
+        <path id="nn-path-a" d="M440,340 L700,340 L950,400" fill="none" stroke="none"/>
+        <path id="nn-path-b" d="M440,200 L700,200 L950,260" fill="none" stroke="none"/>
+        <path id="nn-path-c" d="M440,480 L700,480 L950,540" fill="none" stroke="none"/>
+        <path id="nn-path-d" d="M440,620 L700,620 L950,400" fill="none" stroke="none"/>
+        <path id="nn-path-e" d="M440,200 L700,480 L950,540" fill="none" stroke="none"/>
+        <path id="nn-path-f" d="M440,620 L700,340 L950,260" fill="none" stroke="none"/>
+        <path id="nn-path-g" d="M440,340 L700,200 L950,400" fill="none" stroke="none"/>
+        <path id="nn-path-h" d="M440,480 L700,200 L950,400" fill="none" stroke="none"/>
+
+        <!-- Animated signal dots — each takes a different route -->
+        <g class="nn-signal">
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="0s">
+              <mpath href="#nn-path-a"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="4s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.3s">
+              <mpath href="#nn-path-b"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.5s" repeatCount="indefinite" begin="1.3s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="2.6s">
+              <mpath href="#nn-path-c"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3s" repeatCount="indefinite" begin="2.6s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="3.8s" repeatCount="indefinite" begin="0.7s">
+              <mpath href="#nn-path-d"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.8s" repeatCount="indefinite" begin="0.7s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.8s">
+              <mpath href="#nn-path-e"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.2s" repeatCount="indefinite" begin="1.8s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="3.6s" repeatCount="indefinite" begin="3.1s">
+              <mpath href="#nn-path-f"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.6s" repeatCount="indefinite" begin="3.1s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.4s">
+              <mpath href="#nn-path-g"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="2.8s" repeatCount="indefinite" begin="0.4s"/>
+          </circle>
+          <circle r="4" fill="#22c55e" filter="url(#nn-signal-glow)" opacity="0">
+            <animateMotion dur="4.2s" repeatCount="indefinite" begin="2.2s">
+              <mpath href="#nn-path-h"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="4.2s" repeatCount="indefinite" begin="2.2s"/>
+          </circle>
+        </g>
+
+        <!-- Backpropagation paths: output → hidden → input -->
+        <path id="nn-path-a-r" d="M950,400 L700,340 L440,340" fill="none" stroke="none"/>
+        <path id="nn-path-b-r" d="M950,260 L700,200 L440,200" fill="none" stroke="none"/>
+        <path id="nn-path-c-r" d="M950,540 L700,480 L440,480" fill="none" stroke="none"/>
+        <path id="nn-path-d-r" d="M950,400 L700,620 L440,620" fill="none" stroke="none"/>
+        <path id="nn-path-e-r" d="M950,540 L700,480 L440,200" fill="none" stroke="none"/>
+        <path id="nn-path-f-r" d="M950,260 L700,340 L440,620" fill="none" stroke="none"/>
+        <path id="nn-path-g-r" d="M950,400 L700,200 L440,340" fill="none" stroke="none"/>
+        <path id="nn-path-h-r" d="M950,400 L700,200 L440,480" fill="none" stroke="none"/>
+
+        <!-- Backprop signal dots — amber/orange, reverse direction, delayed until forward pass completes -->
+        <g class="nn-backprop">
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3.5s" repeatCount="indefinite" begin="4s">
+              <mpath href="#nn-path-a-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.5s" repeatCount="indefinite" begin="4s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="4.5s">
+              <mpath href="#nn-path-b-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="4s" repeatCount="indefinite" begin="4.5s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="5s">
+              <mpath href="#nn-path-c-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3s" repeatCount="indefinite" begin="5s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3.8s" repeatCount="indefinite" begin="4.2s">
+              <mpath href="#nn-path-d-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.8s" repeatCount="indefinite" begin="4.2s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3.3s" repeatCount="indefinite" begin="5.3s">
+              <mpath href="#nn-path-e-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.3s" repeatCount="indefinite" begin="5.3s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3.7s" repeatCount="indefinite" begin="4.8s">
+              <mpath href="#nn-path-f-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.7s" repeatCount="indefinite" begin="4.8s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="4.2s" repeatCount="indefinite" begin="5.6s">
+              <mpath href="#nn-path-g-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="4.2s" repeatCount="indefinite" begin="5.6s"/>
+          </circle>
+          <circle r="3" fill="#f97316" filter="url(#nn-backprop-glow)" opacity="0">
+            <animateMotion dur="3.1s" repeatCount="indefinite" begin="4.1s">
+              <mpath href="#nn-path-h-r"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="3.1s" repeatCount="indefinite" begin="4.1s"/>
+          </circle>
+        </g>
+
+        <!-- Nodes: strictly 3 layers -->
+        <g class="nn-nodes">
+          <!-- Input layer (x=440) -->
+          <circle class="nn-node" cx="440" cy="200" r="4"/>
+          <circle class="nn-node" cx="440" cy="340" r="4"/>
+          <circle class="nn-node" cx="440" cy="480" r="4"/>
+          <circle class="nn-node" cx="440" cy="620" r="4"/>
+          <!-- Hidden layer (x=700) -->
+          <circle class="nn-node nn-node--hub" cx="700" cy="200" r="5"/>
+          <circle class="nn-node nn-node--hub" cx="700" cy="340" r="5"/>
+          <circle class="nn-node nn-node--hub" cx="700" cy="480" r="5"/>
+          <circle class="nn-node nn-node--hub" cx="700" cy="620" r="5"/>
+          <!-- Output layer (x=950) -->
+          <circle class="nn-node nn-node--core" cx="950" cy="260" r="4"/>
+          <circle class="nn-node nn-node--core" cx="950" cy="400" r="4"/>
+          <circle class="nn-node nn-node--core" cx="950" cy="540" r="4"/>
+        </g>
+
       </svg>
     </div>
 
     <!-- Digital particles/noise -->
     <div class="hero__dots" aria-hidden="true"></div>
 
+    <!-- Scanning line -->
+    <div class="hero__scan" aria-hidden="true"></div>
+
     <!-- Portrait layer (left, monochrome, low opacity) -->
     <div class="hero__portrait-layer" id="portrait-layer">
-      <img src="{{ '/images/bio-photo.jpg' | relative_url }}" alt="Debabrata Mishra" loading="eager" width="440" height="440">
+      <img src="{{ '/images/profile.png' | relative_url }}" alt="Debabrata Mishra" loading="eager" width="440" height="440">
     </div>
   </div>
 
   <!-- Hero content (lower-left) -->
   <div class="hero__content">
+    <h1 class="hero__title">Debabrata Mishra</h1>
     <p class="hero__overline">Senior Data Scientist</p>
-    <h1 class="hero__title">Backing founders building<br>at the edges of what's&nbsp;possible.</h1>
-    <p class="hero__body">I engineer multi-agent AI systems and graph-native ML pipelines — the kind that learn, reason, and ship.</p>
-    <div class="hero__cta">
-      <a href="{{ base_path }}/year-archive/" class="hero__cta-btn">Selected Work</a>
-      <a href="{{ base_path }}/about/" class="hero__cta-btn hero__cta-btn--outline">About</a>
+    <p class="hero__body">
+      I engineer complex multi-agent AI systems, the kind that learn, reason, and ship.
+    </p>
+
+    <!-- Social handles -->
+    <div class="hero__socials">
+      {% if site.author.email %}
+      <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener noreferrer">Email</a>
+      {% endif %}
+      {% if site.author.github %}
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+      {% endif %}
+      {% if site.author.linkedin %}
+      <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {% endif %}
+      {% if site.author.googlescholar %}
+      <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      {% endif %}
+      {% if site.author.twitter %}
+      <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer">X</a>
+      {% endif %}
+      {% if site.author.dockerhub %}
+      <a href="https://hub.docker.com/u/{{ site.author.dockerhub }}" target="_blank" rel="noopener noreferrer">Docker Hub</a>
+      {% endif %}
     </div>
   </div>
 
@@ -49,67 +269,27 @@ title: Debabrata Mishra
 
 <!-- Main content -->
 <main class="work-section">
-  <!-- 4 investment-focus cards -->
+  <!-- focus cards -->
   <div class="work-grid">
-    <article class="work-card" data-card>
+    <a href="{{ base_path }}/projects/" class="work-card" data-card>
       <span class="work-card__num">01</span>
-      <button class="work-card__icon" type="button" aria-label="Toggle details">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </button>
-      <h3 class="work-card__title">AI &amp; Graph Systems</h3>
-      <p class="work-card__desc">Multi-agent architectures and graph-structured inference pipelines</p>
-      <span class="work-card__tag">Research</span>
-    </article>
+      <h3 class="work-card__title">Projects</h3>
+      <p class="work-card__desc">Explore OSS Projects I'm contributing towards</p>
+    </a>
 
-    <article class="work-card" data-card>
+    <a href="{{ base_path }}/year-archive/" class="work-card" data-card>
       <span class="work-card__num">02</span>
-      <button class="work-card__icon" type="button" aria-label="Toggle details">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </button>
-      <h3 class="work-card__title">Production ML</h3>
-      <p class="work-card__desc">Reliable, monitorable systems that ship and sustain</p>
-      <span class="work-card__tag">Engineering</span>
-    </article>
-
-    <article class="work-card" data-card>
-      <span class="work-card__num">03</span>
-      <button class="work-card__icon" type="button" aria-label="Toggle details">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </button>
-      <h3 class="work-card__title">Knowledge Reasoning</h3>
-      <p class="work-card__desc">Structured knowledge graphs that enable autonomous inference</p>
-      <span class="work-card__tag">AI Research</span>
-    </article>
-
-    <article class="work-card" data-card>
-      <span class="work-card__num">04</span>
-      <button class="work-card__icon" type="button" aria-label="Toggle details">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </button>
       <h3 class="work-card__title">Published Writing</h3>
-      <p class="work-card__desc">Essays on AI, systems, and the practice of building</p>
-      <span class="work-card__tag">Writing</span>
-    </article>
+      <p class="work-card__desc">Articles on AI, systems, and the practice of building</p>
+    </a>
   </div>
 
   <!-- Newsletter subscription pill -->
   <div class="subscribe-pill">
-    <p class="subscribe-pill__text">Stay in the loop — new work, essays, and insights.</p>
-    <form class="subscribe-pill__form" action="#" method="get">
-      <input type="email" placeholder="your@email.com" class="subscribe-pill__input" aria-label="Email address">
+    <p class="subscribe-pill__text">I'll email you when I have something worth reading.</p>
+    <form action="#" method="post" id="subscribe-form" class="subscribe-pill__form">
+      <input type="email" name="email" id="subscribe-email" placeholder="your@email.com" required aria-label="Email address" class="subscribe-pill__input">
       <button type="submit" class="subscribe-pill__btn">Subscribe</button>
     </form>
   </div>
 </main>
-
-<!-- Footer -->
-<footer class="footer-raw">
-  <div class="footer-raw__inner">
-    <span class="footer-raw__copy">&copy; {{ site.time | date: '%Y' }} {{ site.title }}.</span>
-    <nav class="footer-raw__nav">
-      <a href="{{ base_path }}/">Home</a>
-      <a href="{{ base_path }}/year-archive/">Writing</a>
-      <a href="{{ base_path }}/cv/">CV</a>
-    </nav>
-  </div>
-</footer>

@@ -1,7 +1,6 @@
 {% include base_path %}
 
 <nav class="nav-pill" role="navigation" aria-label="Main navigation">
-  <div class="nav-pill__logo">{{ site.title | slice: 0, 2 }}</div>
   <ul class="nav-pill__links">
     {% for link in site.data.navigation.main %}
       <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>

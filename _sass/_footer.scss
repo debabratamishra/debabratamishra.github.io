@@ -12,7 +12,7 @@
   position: absolute;
   bottom: 0em;
   height: auto;
-  margin-top: 3em;
+  margin-top: 0;
   color: var(--muted);
   background-color: var(--surface);
   border-top: 1px solid var(--border-color);
@@ -21,6 +21,7 @@
 .page__footer-copyright {
   font-family: $font-mono;
   font-size: $type-size-7;
+  line-height: 1.4;
 }
 
 .page__footer-follow {

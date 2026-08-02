@@ -1,3 +1,6 @@
 Gemfile.lock
 _site/
 .DS_Store
+.claude/
+.remember/
+_config.dev.yml
