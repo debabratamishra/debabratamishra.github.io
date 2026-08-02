@@ -7,82 +7,86 @@ permalink: /projects/
 <section class="section projects-section">
   <div class="projects-hero">
     <h2 class="section__title">Projects</h2>
-    <p class="section__body">Things I've built and contributed to. Most are on GitHub.</p>
+    <p class="section__body">A curated selection of tools I've built and contributed to. Each one represents a distinct problem I care about solving.</p>
   </div>
 
-  <div id="projects-grid" class="work-grid projects-grid">
-    <div class="work-card skeleton" aria-hidden="true">
-      <div class="skeleton__line skeleton__line--short"></div>
-      <div class="skeleton__line"></div>
-      <div class="skeleton__line skeleton__line--medium"></div>
-    </div>
-    <div class="work-card skeleton" aria-hidden="true">
-      <div class="skeleton__line skeleton__line--short"></div>
-      <div class="skeleton__line"></div>
-      <div class="skeleton__line skeleton__line--medium"></div>
-    </div>
-    <div class="work-card skeleton" aria-hidden="true">
-      <div class="skeleton__line skeleton__line--short"></div>
-      <div class="skeleton__line"></div>
-      <div class="skeleton__line skeleton__line--medium"></div>
-    </div>
-  </div>
+  <div class="projects-grid">
 
-  <div id="projects-error" class="projects-error" style="display:none;">
-    <p>Could not load projects. <a href="https://github.com/debabratamishra">View on GitHub →</a></p>
+    <!-- Project 1: litemind-ui -->
+    <article class="project-card" data-card>
+      <a href="https://github.com/debabratamishra/litemind-ui" target="_blank" rel="noopener noreferrer" class="project-card__link">
+        <div class="project-card__image">
+          <img src="{{ '/images/projects/litemind-ui-demo.gif' | relative_url }}" alt="litemind-ui demo screenshot" loading="lazy" width="800" height="450">
+          <span class="project-card__play" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+              <polygon points="19,14 34,24 19,34" fill="#2a2a2a"/>
+            </svg>
+          </span>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">litemind-ui</h3>
+          <p class="project-card__desc">A lightweight, accessible UI component library built on native Web Components. Zero runtime dependencies, themeable via CSS custom properties, and designed to drop into any project without a build step.</p>
+          <div class="project-card__meta">
+            <span class="project-card__tag">Web Components</span>
+            <span class="project-card__tag">TypeScript</span>
+            <span class="project-card__tag">Zero-dep</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Project 2: litemind-cli -->
+    <article class="project-card" data-card>
+      <a href="https://github.com/debabratamishra/litemind-cli" target="_blank" rel="noopener noreferrer" class="project-card__link">
+        <div class="project-card__image">
+          <img src="{{ '/images/projects/litemind-cli-demo.svg' | relative_url }}" alt="litemind-cli demo terminal screenshot" loading="lazy" width="800" height="450">
+          <span class="project-card__play" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+              <polygon points="19,14 34,24 19,34" fill="#2a2a2a"/>
+            </svg>
+          </span>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">litemind-cli</h3>
+          <p class="project-card__desc">A fast, battery-included CLI scaffolding tool that generates production-ready project structures with opinionated defaults. Supports plugins, custom templates, and interactive prompts.</p>
+          <div class="project-card__meta">
+            <span class="project-card__tag">Rust</span>
+            <span class="project-card__tag">CLI</span>
+            <span class="project-card__tag">Templating</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Project 3: llm-evals -->
+    <article class="project-card" data-card>
+      <a href="https://github.com/debabratamishra/llm-evals" target="_blank" rel="noopener noreferrer" class="project-card__link">
+        <div class="project-card__image">
+          <img src="{{ '/images/projects/llm-evals-demo.svg' | relative_url }}" alt="llm-evals dashboard demo screenshot" loading="lazy" width="800" height="450">
+          <span class="project-card__play" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+              <polygon points="19,14 34,24 19,34" fill="#2a2a2a"/>
+            </svg>
+          </span>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">llm-evals</h3>
+          <p class="project-card__desc">A framework for systematic evaluation of large language model outputs. Define rubrics, run parallel comparisons across models, and generate statistical reports with minimal configuration.</p>
+          <div class="project-card__meta">
+            <span class="project-card__tag">Python</span>
+            <span class="project-card__tag">Evaluation</span>
+            <span class="project-card__tag">LLM</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
   </div>
 
   <div class="projects-cta">
     <a href="https://github.com/debabratamishra" class="hero__cta-btn">View All on GitHub →</a>
   </div>
 </section>
-
-<script>
-(function() {
-  var grid = document.getElementById('projects-grid');
-  var error = document.getElementById('projects-error');
-  if (!grid) return;
-
-  fetch('https://api.github.com/users/debabratamishra/repos?sort=updated&per_page=12')
-    .then(function(r) { return r.json(); })
-    .then(function(repos) {
-      grid.querySelectorAll('.skeleton').forEach(function(s) { s.remove(); });
-      repos.forEach(function(repo, i) {
-        var card = document.createElement('a');
-        card.href = repo.html_url;
-        card.className = 'work-card project-card';
-        card.target = '_blank';
-        card.rel = 'noopener noreferrer';
-        var langColor = getLangColor(repo.language);
-        var metaHtml = '';
-        if (repo.language) {
-          metaHtml += '<span class="project-card__lang" style="--lang-color:' + langColor + '">' + repo.language + '</span>';
-        }
-        if (repo.stargazers_count > 0) {
-          metaHtml += '<span class="project-card__stars">' + repo.stargazers_count + ' ★</span>';
-        }
-        card.innerHTML =
-          '<span class="work-card__num">' + String(i + 1).padStart(2, '0') + '</span>' +
-          '<h3 class="work-card__title">' + repo.name + '</h3>' +
-          '<p class="work-card__desc">' + (repo.description || 'No description provided.') + '</p>' +
-          '<div class="project-card__meta">' + metaHtml + '</div>';
-        grid.appendChild(card);
-      });
-    })
-    .catch(function() {
-      grid.querySelectorAll('.skeleton').forEach(function(s) { s.remove(); });
-      error.style.display = 'block';
-    });
-
-  function getLangColor(lang) {
-    var colors = {
-      'JavaScript': '#f1e05a', 'Python': '#3572A5', 'Rust': '#dea584',
-      'TypeScript': '#3178c6', 'Ruby': '#701516', 'Go': '#00ADD8',
-      'Java': '#b07219', 'C': '#555555', 'C++': '#f34b7d',
-      'Jupyter Notebook': '#DA5B0B', 'Shell': '#89e051', 'HTML': '#e34c26',
-      'CSS': '#563d7c', 'Makefile': '#427819'
-    };
-    return colors[lang] || '#888888';
-  }
-})();
-</script>
