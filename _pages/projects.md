@@ -28,7 +28,6 @@ permalink: /projects/
           <h3 class="project-card__title">litemind-ui</h3>
           <p class="project-card__desc">A lightweight, accessible UI component library built on native Web Components. Zero runtime dependencies, themeable via CSS custom properties, and designed to drop into any project without a build step.</p>
           <div class="project-card__meta">
-            <span class="project-card__tag">Web Components</span>
             <span class="project-card__tag">TypeScript</span>
             <span class="project-card__tag">Zero-dep</span>
           </div>
@@ -40,7 +39,7 @@ permalink: /projects/
     <article class="project-card" data-card>
       <a href="https://github.com/debabratamishra/litemind-cli" target="_blank" rel="noopener noreferrer" class="project-card__link">
         <div class="project-card__image">
-          <img src="{{ '/images/projects/litemind-cli-demo.svg' | relative_url }}" alt="litemind-cli demo terminal screenshot" loading="lazy" width="800" height="450">
+          <img src="{{ '/images/projects/litemind-cli-demo.png' | relative_url }}" alt="litemind-cli demo terminal screenshot" loading="lazy" width="800" height="450">
           <span class="project-card__play" aria-hidden="true">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
               <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
@@ -52,7 +51,6 @@ permalink: /projects/
           <h3 class="project-card__title">litemind-cli</h3>
           <p class="project-card__desc">A fast, battery-included CLI scaffolding tool that generates production-ready project structures with opinionated defaults. Supports plugins, custom templates, and interactive prompts.</p>
           <div class="project-card__meta">
-            <span class="project-card__tag">Rust</span>
             <span class="project-card__tag">CLI</span>
             <span class="project-card__tag">Templating</span>
           </div>
@@ -64,7 +62,7 @@ permalink: /projects/
     <article class="project-card" data-card>
       <a href="https://github.com/debabratamishra/llm-evals" target="_blank" rel="noopener noreferrer" class="project-card__link">
         <div class="project-card__image">
-          <img src="{{ '/images/projects/llm-evals-demo.svg' | relative_url }}" alt="llm-evals dashboard demo screenshot" loading="lazy" width="800" height="450">
+          <img src="{{ '/images/projects/llm-evals-demo.jpeg' | relative_url }}" alt="llm-evals dashboard demo screenshot" loading="lazy" width="800" height="450">
           <span class="project-card__play" aria-hidden="true">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
               <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
@@ -76,9 +74,8 @@ permalink: /projects/
           <h3 class="project-card__title">llm-evals</h3>
           <p class="project-card__desc">A framework for systematic evaluation of large language model outputs. Define rubrics, run parallel comparisons across models, and generate statistical reports with minimal configuration.</p>
           <div class="project-card__meta">
-            <span class="project-card__tag">Python</span>
-            <span class="project-card__tag">Evaluation</span>
-            <span class="project-card__tag">LLM</span>
+            <span class="project-card__tag">LLM Evaluation</span>
+            <span class="project-card__tag">Performance Benchmarking</span>
           </div>
         </div>
       </a>
