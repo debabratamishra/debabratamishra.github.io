@@ -810,6 +810,13 @@
     margin-left: auto;
     opacity: 0.6;
   }
+
+  @media (max-width: 600px) {
+    .hero__orbit-svg {
+      width: 58%;
+      opacity: 0.7;
+    }
+  }
 }
 
 /* Digital dots/particles — denser, more varied for data-processing feel */
@@ -884,12 +891,12 @@
   }
 
   @media (max-width: 600px) {
-    width: 100%;
-    height: 60vh;
+    width: 42%;
+    height: 100%;
     max-width: none;
-    opacity: 0.12;
-    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    opacity: 0.18;
+    mask-image: linear-gradient(to right, black 8%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 8%, transparent 100%);
   }
 }
 
@@ -914,8 +921,8 @@
   pointer-events: none;
 
   @media (max-width: 600px) {
-    width: 100%;
-    height: 60vh;
+    width: 42%;
+    height: 100%;
   }
 }
 
