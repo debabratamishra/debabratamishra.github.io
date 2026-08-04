@@ -1,7 +1,10 @@
-# main links links
+# main navigation links
 main:
-  - title: "Blog Posts"
-    url: /year-archive/   
-    
+  - title: "Home"
+    url: /
+  - title: "Writing"
+    url: /year-archive/
+  - title: "Projects"
+    url: /projects/
   - title: "CV"
     url: /cv/

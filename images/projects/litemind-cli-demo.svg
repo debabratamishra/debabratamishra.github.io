@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#f5f0eb"/>
+  <rect x="40" y="30" width="720" height="390" rx="8" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <!-- Terminal header -->
+  <rect x="40" y="30" width="720" height="36" rx="8" fill="#2a2a2a"/>
+  <circle cx="62" cy="48" r="6" fill="#ff5f56" opacity="0.8"/>
+  <circle cx="82" cy="48" r="6" fill="#ffbd2e" opacity="0.8"/>
+  <circle cx="102" cy="48" r="6" fill="#27c93f" opacity="0.8"/>
+  <rect x="130" y="42" width="200" height="12" rx="3" fill="#555" opacity="0.5"/>
+  <!-- Terminal content -->
+  <rect x="60" y="78" width="12" height="12" rx="2" fill="#0d9488" opacity="0.9"/>
+  <rect x="78" y="78" width="400" height="10" rx="2" fill="#0d9488" opacity="0.7"/>
+  <rect x="60" y="100" width="12" height="12" rx="2" fill="#0d9488" opacity="0.9"/>
+  <rect x="78" y="100" width="350" height="10" rx="2" fill="#0d9488" opacity="0.7"/>
+  <rect x="60" y="122" width="12" height="12" rx="2" fill="#0d9488" opacity="0.9"/>
+  <rect x="78" y="122" width="380" height="10" rx="2" fill="#0d9488" opacity="0.7"/>
+  <rect x="60" y="144" width="12" height="12" rx="2" fill="#0d9488" opacity="0.9"/>
+  <rect x="78" y="144" width="300" height="10" rx="2" fill="#0d9488" opacity="0.7"/>
+  <!-- Output lines -->
+  <rect x="60" y="175" width="12" height="12" rx="2" fill="#555" opacity="0.5"/>
+  <rect x="78" y="175" width="500" height="10" rx="2" fill="#555" opacity="0.3"/>
+  <rect x="60" y="197" width="12" height="12" rx="2" fill="#555" opacity="0.5"/>
+  <rect x="78" y="197" width="420" height="10" rx="2" fill="#555" opacity="0.3"/>
+  <!-- Green success line -->
+  <rect x="60" y="225" width="12" height="12" rx="2" fill="#27c93f" opacity="0.7"/>
+  <rect x="78" y="225" width="200" height="10" rx="2" fill="#27c93f" opacity="0.5"/>
+  <!-- Command prompt cursor -->
+  <rect x="78" y="250" width="8" height="12" rx="1" fill="#0d9488" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Side stats panel -->
+  <rect x="600" y="78" width="140" height="180" rx="4" fill="#222" stroke="#333" stroke-width="0.5"/>
+  <rect x="615" y="92" width="110" height="10" rx="2" fill="#0d9488" opacity="0.6"/>
+  <rect x="615" y="108" width="80" height="8" rx="2" fill="#555" opacity="0.4"/>
+  <rect x="615" y="122" width="100" height="8" rx="2" fill="#555" opacity="0.4"/>
+  <rect x="615" y="140" width="110" height="10" rx="2" fill="#0d9488" opacity="0.6"/>
+  <rect x="615" y="156" width="90" height="8" rx="2" fill="#555" opacity="0.4"/>
+  <rect x="615" y="170" width="100" height="8" rx="2" fill="#555" opacity="0.4"/>
+  <rect x="615" y="188" width="110" height="10" rx="2" fill="#0d9488" opacity="0.6"/>
+  <rect x="615" y="204" width="70" height="8" rx="2" fill="#555" opacity="0.4"/>
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="20" fill="#1a1a1a"/>
+</svg>

@@ -1,53 +1,109 @@
 /* ==========================================================================
-   MASTHEAD
+   FLOATING PILL NAV
    ========================================================================== */
 
+.nav-pill {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+  font-family: $font-body;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+
+  @media (max-width: 600px) {
+    padding: 0.35rem 0.75rem;
+    gap: 1rem;
+    font-size: 0.72rem;
+  }
+}
+
+.nav-pill__logo {
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.nav-pill__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover {
+      color: var(--text);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.nav-pill__feed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  padding: 0;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--border-color);
+    background: rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Hide the old .masthead completely (replaced by floating pill nav) */
 .masthead {
-  position: relative;
-  border-bottom: 1px solid $border-color;
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-  z-index: 20;
-
-  &__inner-wrap {
-    @include container;
-    @include clearfix;
-    padding: 1em 1em 1em;
-    font-family: $sans-serif-narrow;
-
-    @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
-
-    nav {
-      z-index: 10;
-    }
-
-    a {
-      text-decoration: none;
-    }
-  }
-}
-
-.masthead__menu {
-
-  ul {
-    margin: 0;
-    padding: 0;
-    clear: both;
-    list-style-type: none;
-  }
-}
-
-.masthead__menu-item {
-  display: block;
-  list-style-type: none;
-  white-space: nowrap;
-
-  &--lg {
-    padding-right: 2em;
-    font-weight: 700;
-  }
+  display: none;
 }
