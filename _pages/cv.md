@@ -1,59 +1,110 @@
 ---
-layout: archive
+layout: cv
 title: "CV"
 permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
+author_profile: false
 ---
 
-{% include base_path %}
+## Work Experience
 
-Work Experience
-======
-* Commonwealth Bank of Australia, Australia (2025 - Present)
-* National Acoustic Laboratories, Australia (2024 - 2025)
-* Monash University, Australia (2021- 2024)
-* Deakin University, Australia (2022 - 2023)
-* Capillary Technologies, India (2018 - 2021)
-* Tata Consultancy Services, India (2016 - 2018)
+<div class="cv-entry">
+<h3>Senior Data Scientist</h3>
+<p class="cv-entry__org">Commonwealth Bank of Australia</p>
+<p class="cv-entry__period">2025 - Present</p>
+</div>
 
-Education
-======
-* Masters in Artificial Intelligence, Monash University (2021-2023)
-* Bachelor of Technology, Biju Patnaik University of Technology (2012-2016)
+<div class="cv-entry">
+<h3>ML Research Engineer</h3>
+<p class="cv-entry__org">National Acoustic Laboratories</p>
+<p class="cv-entry__period">2024 - 2025</p>
+</div>
 
-Conferences
-======
-* Podium Presentation at International Society for Magnetic Resonance in Medicine(ISMRM) 2024 at Singapore
-* Poster presentation at Organization for Human Brain Mapping(OHBM) 2024 at Seoul, South Korea
+<div class="cv-entry">
+<h3>Research Associate</h3>
+<p class="cv-entry__org">Deakin University</p>
+<p class="cv-entry__period">2022 - 2023</p>
+</div>
 
-Active Projects
-======
+<div class="cv-entry">
+<h3>Masters Researcher</h3>
+<p class="cv-entry__org">Monash University</p>
+<p class="cv-entry__period">2021 - 2024</p>
+</div>
 
-* [LiteMind UI](https://github.com/debabratamishra/litemind-ui)
-<br>Enterprise grade full stack LLM UI with agentic RAG, Swagger/OpenAPI documentation, and realtime voice mode for seamless human AI interaction.
-<br>Container images here - [Deb's DockerHub](https://hub.docker.com/u/debabratamishra1)
+<div class="cv-entry">
+<h3>Senior ML Engineer</h3>
+<p class="cv-entry__org">Capillary Technologies</p>
+<p class="cv-entry__period">2018 - 2021</p>
+</div>
 
-* [LLM Evals](https://github.com/debabratamishra/llm-evals)
-<br>Reproducible evaluation framework for large language models: custom benchmarks, automated scoring, and experiment tracking to support rigorous model comparisons.
+<div class="cv-entry">
+<h3>Software Engineer</h3>
+<p class="cv-entry__org">Tata Consultancy Services</p>
+<p class="cv-entry__period">2016 - 2018</p>
+</div>
 
-* [LiteMind CLI](https://github.com/debabratamishra/litemind-cli)
-<br>Python terminal UI for the LiteMindUI backend, bringing chat, retrieval-augmented generation (RAG), and provider switching to the command line.
+## Education
 
-Licenses & Certificates
-======
-* [Reinforcement Learning Specialization - University of Alberta](https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R)
-* [Natural Language Processing Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/certificate/FNZ9A9AZ3YLT)
-* [Mathematics for Machine Learning Specialization - Imperial College London](https://www.coursera.org/account/accomplishments/specialization/EAPXMVQ2QL68)
-* [Deep Learning Specialization - DeepLearning.AI](https://www.coursera.org/account/accomplishments/specialization/G5H37YK7NCQZ)
+<div class="cv-entry">
+<h3>Masters in Artificial Intelligence</h3>
+<p class="cv-entry__org">Monash University, Australia</p>
+<p class="cv-entry__period">2021 - 2023</p>
+</div>
 
-Skills
-======
-* Machine Learning
-* Deep Learning
-* Reinforcement Learning
-* Apache Spark
-* Dask
-* Microsoft Azure
-* Amazon Web Services
+<div class="cv-entry">
+<h3>Bachelor of Technology</h3>
+<p class="cv-entry__org">Biju Patnaik University of Technology, India</p>
+<p class="cv-entry__period">2012 - 2016</p>
+</div>
+
+## Conferences
+
+<div class="cv-entry">
+<h3>Podium Presentation</h3>
+<p class="cv-entry__org">ISMRM 2024, Singapore</p>
+</div>
+
+<div class="cv-entry">
+<h3>Poster Presentation</h3>
+<p class="cv-entry__org">OHBM 2024, South Korea</p>
+</div>
+
+## Active Projects
+
+<div class="cv-entry">
+<h3><a href="https://github.com/debabratamishra/litemind-ui">LiteMind UI</a></h3>
+<p class="cv-entry__org">Full-stack LLM UI with agentic RAG, OpenAPI docs, and realtime voice mode.</p>
+<p class="cv-entry__period"><a href="https://hub.docker.com/u/debabratamishra1">Docker images</a></p>
+</div>
+
+<div class="cv-entry">
+<h3><a href="https://github.com/debabratamishra/llm-evals">LLM Evals</a></h3>
+<p class="cv-entry__org">Reproducible evaluation framework: custom benchmarks, automated scoring, experiment tracking.</p>
+</div>
+
+<div class="cv-entry">
+<h3><a href="https://github.com/debabratamishra/litemind-cli">LiteMind CLI</a></h3>
+<p class="cv-entry__org">Python terminal UI for the LiteMindUI backend, chat, RAG, and provider switching.</p>
+</div>
+
+## Licenses & Certificates
+
+<div class="cv-entry">
+<h3>Reinforcement Learning</h3>
+<p class="cv-entry__org">University of Alberta - <a href="https://www.coursera.org/account/accomplishments/specialization/QUSXZF07HF8R">View Certificate</a></p>
+</div>
+
+<div class="cv-entry">
+<h3>Natural Language Processing</h3>
+<p class="cv-entry__org">DeepLearning.AI - <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/FNZ9A9AZ3YLT">View Certificate</a></p>
+</div>
+
+<div class="cv-entry">
+<h3>Mathematics for Machine Learning</h3>
+<p class="cv-entry__org">Imperial College London - <a href="https://www.coursera.org/account/accomplishments/specialization/EAPXMVQ2QL68">View Certificate</a></p>
+</div>
+
+<div class="cv-entry">
+<h3>Deep Learning</h3>
+<p class="cv-entry__org">DeepLearning.AI - <a href="https://www.coursera.org/account/accomplishments/specialization/G5H37YK7NCQZ">View Certificate</a></p>
+</div>

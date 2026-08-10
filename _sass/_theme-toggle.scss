@@ -63,14 +63,14 @@
 
 /* ---- 3. Dark palette + overrides ---- */
 [data-theme="dark"] {
-  --bg: #121417;
-  --surface: #1b1e23;
-  --text: #d7dde3;
-  --muted: #9aa4ad;
-  --border: #2c3138;
-  --link: #6cc4dd;
-  --link-hover: #8fd6ea;
-  --accent: #8a929a;
+  --bg: #0F0F0F;
+  --surface: #1A1A1A;
+  --text: #E0E0E0;
+  --muted: #8A8A8A;
+  --border: #2A2A2A;
+  --link: #2DD4BF;
+  --link-hover: #5EEAD4;
+  --accent: #2DD4BF;
   --code-bg: #1a1d22;
 
   body {
@@ -78,11 +78,11 @@
     color: var(--text);
   }
 
-  h1, h2, h3, h4, h5, h6 { color: #e7ecf1; }
+  h1, h2, h3, h4, h5, h6 { color: var(--text); }
 
   a { color: var(--link); }
   a:hover, a:active { color: var(--link-hover); }
-  a:visited { color: #7fb7c9; }
+  a:visited { color: var(--link-hover); }
 
   /* masthead / navigation */
   .masthead { border-bottom-color: var(--border); }

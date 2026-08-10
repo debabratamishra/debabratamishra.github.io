@@ -16,12 +16,13 @@
 </script>
 
 <script>
-  /* Apply the saved (or OS-preferred) theme before first paint to avoid a flash. */
+  /* Apply the saved theme before first paint to avoid a flash.
+     Defaults to light — does not auto-detect OS dark mode. */
   (function () {
     try {
       var t = localStorage.getItem('theme');
       if (!t) {
-        t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        t = 'light';
       }
       document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}

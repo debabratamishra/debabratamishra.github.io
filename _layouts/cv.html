@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="cv-layout">
+
+  <!-- Sidebar -->
+  <aside class="cv-sidebar">
+    <div class="cv-sidebar__inner">
+
+      <!-- Profile photo -->
+      {% if site.author.avatar %}
+      <div class="cv-avatar">
+        <img src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ site.author.name }}" loading="eager" width="100" height="100">
+      </div>
+      {% endif %}
+
+      <!-- Name -->
+      <h1 class="cv-name">{{ site.author.name }}</h1>
+      {% if site.author.location %}
+      <p class="cv-location">{{ site.author.location }}</p>
+      {% endif %}
+
+      <!-- Social links (compact) -->
+      <div class="cv-socials">
+        {% if site.author.email %}
+        <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener noreferrer">Email</a>
+        {% endif %}
+        {% if site.author.github %}
+        <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {% endif %}
+        {% if site.author.linkedin %}
+        <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        {% endif %}
+        {% if site.author.googlescholar %}
+        <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        {% endif %}
+        {% if site.author.twitter %}
+        <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer">X</a>
+        {% endif %}
+        {% if site.author.dockerhub %}
+        <a href="https://hub.docker.com/u/{{ site.author.dockerhub }}" target="_blank" rel="noopener noreferrer">Docker Hub</a>
+        {% endif %}
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="cv-content">
+    {{ content }}
+  </main>
+
+</div>

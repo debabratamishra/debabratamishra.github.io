@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<!-- Full-viewport hero -->
+<section class="hero" id="hero">
+  <!-- Background layers -->
+  <div class="hero__bg" aria-hidden="true">
+    <!-- Background image (behind portrait, merges via portrait's fade mask) -->
+    <div class="hero__bg-image" aria-hidden="true">
+      <img src="{{ '/images/home-background.png' | relative_url }}" alt="" loading="eager">
+    </div>
+
+    <!-- Portrait layer (left, monochrome, low opacity) -->
+    <div class="hero__portrait-layer" id="portrait-layer">
+      <img src="{{ '/images/profile.png' | relative_url }}" alt="Debabrata Mishra" loading="eager" width="440" height="440">
+    </div>
+  </div>
+
+  <!-- Hero content (lower-left) -->
+  <div class="hero__content">
+    <h1 class="hero__title">Debabrata Mishra</h1>
+    <p class="hero__overline">AI & Frontier Builder</p>
+    <p class="hero__body">
+      I engineer complex multi-agent AI systems that learn, reason, and ship.
+    </p>
+
+    <!-- Social handles -->
+    <div class="hero__socials">
+      {% if site.author.email %}
+      <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener noreferrer">Email</a>
+      {% endif %}
+      {% if site.author.github %}
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+      {% endif %}
+      {% if site.author.linkedin %}
+      <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {% endif %}
+      {% if site.author.googlescholar %}
+      <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      {% endif %}
+      {% if site.author.twitter %}
+      <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer">X</a>
+      {% endif %}
+      {% if site.author.dockerhub %}
+      <a href="https://hub.docker.com/u/{{ site.author.dockerhub }}" target="_blank" rel="noopener noreferrer">Docker Hub</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Hover-reveal portrait overlay -->
+  <div class="hero__portrait-reveal" id="portrait-reveal" aria-hidden="true"></div>
+</section>
+
+<!-- Main content -->
+<main class="work-section">
+  <!-- focus cards -->
+  <div class="work-grid">
+    <a href="{{ base_path }}/projects/" class="work-card" data-card>
+      <span class="work-card__num">01</span>
+      <h3 class="work-card__title">Projects</h3>
+      <p class="work-card__desc">Explore OSS Projects I'm contributing towards</p>
+    </a>
+
+    <a href="{{ base_path }}/year-archive/" class="work-card" data-card>
+      <span class="work-card__num">02</span>
+      <h3 class="work-card__title">Published Writing</h3>
+      <p class="work-card__desc">Articles on AI, systems, and the practice of building</p>
+    </a>
+  </div>
+
+  <!-- Newsletter subscription pill -->
+  <div class="subscribe-pill">
+    <p class="subscribe-pill__text">I'll email you when I have something worth reading.</p>
+    <form action="#" method="post" id="subscribe-form" class="subscribe-pill__form">
+      <input type="email" name="email" id="subscribe-email" placeholder="your@email.com" required aria-label="Email address" class="subscribe-pill__input">
+      <button type="submit" class="subscribe-pill__btn">Subscribe</button>
+    </form>
+  </div>
+</main>

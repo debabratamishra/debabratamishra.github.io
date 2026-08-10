@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Debabrata Mishra"
+title                    : "Debabrata Mishra | AI & Frontier Builder"
 title_separator          : "-"
 name                     : &name "Debabrata Mishra"
 description              : &description "personal description"
@@ -77,7 +77,7 @@ author:
   bio              : "Senior Data Scientist"
   # employer         : "Commonwealth Bank of Australia"
   googlescholar    : "https://scholar.google.com.au/citations?user=oqq4vIgAAAAJ"
-  email            : "debabrata[dot]mishra641[at]gmail[dot]com"
+  email            : "debabrata.mishra641@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -89,7 +89,7 @@ author:
   lastfm           :
   linkedin         : "debabrata-mishra1"
   stackoverflow    : "11456086/debabrata-mishra"
-  twitter          : #"replacethistwitterhandle"
+  twitter          : "m_debabrata"
   location         : "Sydney, AU"
 
 
