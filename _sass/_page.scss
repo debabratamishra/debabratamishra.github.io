@@ -905,12 +905,10 @@
   }
 
   @media (max-width: 600px) {
-    width: 42%;
-    height: 100%;
-    max-width: none;
-    opacity: 0.18;
-    mask-image: linear-gradient(to right, black 8%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black 8%, transparent 100%);
+    width: 52%;
+    opacity: 0.3;
+    mask-image: linear-gradient(to right, black 10%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 10%, transparent 100%);
   }
 }
 
