@@ -1,0 +1,24 @@
+---
+layout: null
+permalink: /rss.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{% if site.description %}{{ site.description | xml_escape }}{% else %}"{{ site.title | xml_escape }}" | {{ site.author.name | xml_escape }}{% endif %}</description>
+    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <atom:link href="{{ site.url }}{{ site.baseurl }}/rss.xml" rel="self" type="application/rss+xml" />
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
+      <guid isPermaLink="false">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <description>{{ post.content | strip_html | truncatewords: 40 | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
