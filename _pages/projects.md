@@ -28,8 +28,8 @@ permalink: /projects/
           <h3 class="project-card__title">litemind-ui</h3>
           <p class="project-card__desc">A lightweight, accessible UI component library built on native Web Components. Zero runtime dependencies, themeable via CSS custom properties, and designed to drop into any project without a build step.</p>
           <div class="project-card__meta">
-            <span class="project-card__tag">TypeScript</span>
-            <span class="project-card__tag">Zero-dep</span>
+            <span class="project-card__tag">Web User-Interface</span>
+            <span class="project-card__tag">LLM-backend</span>
           </div>
         </div>
       </a>
