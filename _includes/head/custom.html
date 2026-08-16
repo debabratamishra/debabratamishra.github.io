@@ -7,19 +7,56 @@
 <link rel="mask-icon" href="{{ base_path }}/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<!-- MathJax configuration -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "all" } },
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       processEscapes: true
+    },
+    "HTML-CSS": { linebreaks: { automatic: true } },
+    CommonHTML: { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } }
+  });
+
+  // Responsive equation fitting: scale any MathJax display equation that overflows its
+  // snippet box so the whole equation always fits the viewport (no clipping).
+  // Also wrap equations in code fences for code-styled appearance.
+  window.fitEquations = function () {
+    var boxes = document.querySelectorAll('.MathJax_Display');
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i];
+      var inner = box.firstElementChild;
+      if (!inner) continue;
+      inner.style.zoom = '1'; // reset before measuring natural width
+      var cs = window.getComputedStyle(box);
+      var pad = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+      var avail = box.clientWidth - pad;
+      var natural = box.scrollWidth - pad;
+      if (natural > avail && natural > 0) {
+        inner.style.zoom = String(avail / natural);
+      }
+      // Wrap math content in code fences for code-styled appearance
+      var mathContent = box.innerHTML;
+      box.innerHTML = '\`\`\`\n' + mathContent + '\n\`\`\`';
     }
+  };
+
+  MathJax.Hub.Register.MessageHook("End Process", function () {
+    window.fitEquations();
+  });
+
+  var eqFitTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(eqFitTimer);
+    eqFitTimer = setTimeout(window.fitEquations, 200);
   });
 </script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 <!-- end custom head snippets -->

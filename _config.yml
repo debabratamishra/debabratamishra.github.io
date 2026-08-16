@@ -195,11 +195,13 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - math_to_code_fences
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
   # - jekyll-sitemap
   - jekyll-gist
+  - math_to_code_fences
   - jekyll-feed
   - jemoji
 

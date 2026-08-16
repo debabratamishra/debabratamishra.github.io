@@ -1,0 +1,11 @@
+---
+layout: null
+---
+
+{% if include.math %}
+  <!-- MathJax display equation wrapped in code fence for code-styled appearance -->
+  ``` {{ include.math }}
+  ```
+{% else %}
+  {{ include.content | default: include.math | strip_html | strip_liquid }}
+{% endif %}

@@ -7,6 +7,7 @@ html {
   min-height: 100%;
   scroll-padding-top: 4rem;
   color-scheme: light;
+  overflow-x: clip; /* no horizontal page scroll, ever */
 }
 
 body {
@@ -16,6 +17,7 @@ body {
   color: $text-color;
   font-family: $global-font-family;
   line-height: 1.5;
+  overflow-x: clip; /* no horizontal page scroll, ever */
 
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
@@ -262,6 +264,60 @@ figcaption {
 
 svg:not(:root) {
   overflow: hidden;
+}
+
+
+/*
+   Viewport containment
+   ========================================================================== */
+
+/* Every embedded media element is capped to its container width */
+img, iframe, video, object, embed, canvas {
+  max-width: 100%;
+}
+
+/* Video embeds keep a 16:9 ratio at any viewport width */
+iframe[src*="youtube.com"],
+iframe[src*="youtu.be"],
+iframe[src*="vimeo.com"] {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+/* Long unbroken strings (URLs, DOIs, citation links) wrap instead of overflowing */
+a,
+.page__content,
+.page__lead,
+.archive__item-excerpt {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* MathJax display equations render as equation snippets — like code blocks
+   but for mathematical expressions. They scale to fit the viewport via
+   the fitEquations() function in _includes/head/custom.html. */
+.MathJax_Display {
+  max-width: 100%;
+  min-width: 0;
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background-color: $code-background-color;
+  box-shadow: $box-shadow;
+  overflow: visible;
+  overflow-wrap: break-word !important; /* force long equations to wrap */
+  word-wrap: break-word !important;   /* fallback for older browsers */
+  word-break: break-word;             /* force break at any character */
+  /* Allow descendants to wrap - target MathJax's inline-spanned content */
+  * { white-space: normal !important; }
+}
+
+/* Match code block aesthetic from _syntax.scss */
+
+.MathJax_Preview {
+  max-width: 100%;
 }
 
 
