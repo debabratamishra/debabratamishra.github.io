@@ -14,7 +14,7 @@ permalink: /projects/
 
     <!-- Project 1: litemind-ui -->
     <article class="project-card" data-card>
-      <a href="https://github.com/debabratamishra/litemind-ui" target="_blank" rel="noopener noreferrer" class="project-card__link">
+      <a href="https://debabratamishra.github.io/litemind-ui" target="_blank" rel="noopener noreferrer" class="project-card__link">
         <div class="project-card__image">
           <img src="{{ '/images/projects/litemind-ui-demo.gif' | relative_url }}" alt="litemind-ui demo screenshot" loading="lazy" width="800" height="450">
           <span class="project-card__play" aria-hidden="true">
@@ -37,7 +37,7 @@ permalink: /projects/
 
     <!-- Project 2: litemind-cli -->
     <article class="project-card" data-card>
-      <a href="https://github.com/debabratamishra/litemind-cli" target="_blank" rel="noopener noreferrer" class="project-card__link">
+      <a href="https://debabratamishra.github.io/litemind-cli" target="_blank" rel="noopener noreferrer" class="project-card__link">
         <div class="project-card__image">
           <img src="{{ '/images/projects/litemind-cli-demo.png' | relative_url }}" alt="litemind-cli demo terminal screenshot" loading="lazy" width="800" height="450">
           <span class="project-card__play" aria-hidden="true">
